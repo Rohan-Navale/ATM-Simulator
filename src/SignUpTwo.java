@@ -87,7 +87,7 @@ public class SignUpTwo extends JFrame {
         setSize(850,800);
         setLocation(350,10);
         setVisible(true);
-        getContentPane().setBackground(Color.gray);
+        getContentPane().setBackground(Color.darkGray);
 
     }
 
