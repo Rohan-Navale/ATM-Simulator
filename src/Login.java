@@ -83,13 +83,6 @@ public class Login extends JFrame implements ActionListener {
         getContentPane().setBackground(Color.darkGray);
         setVisible(true);
         setLocation(350,200);
-
-
-
-
-
-
-
     }
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource() == clear){
