@@ -57,6 +57,7 @@ public class Login extends JFrame implements ActionListener {
         login = new JButton("Sign In");
         login.setBounds(450, 238, 100, 28);
         login.addActionListener(this);
+        login.setFont(new Font("Roboto", Font.PLAIN,14));
         login.setForeground(Color.white);
         login.setBackground(Color.DARK_GRAY);
         add(login);
@@ -65,6 +66,7 @@ public class Login extends JFrame implements ActionListener {
         clear.setBounds(360, 238, 80, 28);
         clear.setForeground(Color.white);
         clear.addActionListener(this);
+        clear.setFont(new Font("Roboto", Font.PLAIN,14));
         clear.setBackground(Color.DARK_GRAY);
         add(clear);
 
@@ -72,12 +74,13 @@ public class Login extends JFrame implements ActionListener {
         register.setBounds(360, 276, 190, 28);
         register.setForeground(Color.white);
         register.addActionListener(this);
-        register.setBackground(Color.DARK_GRAY);
+        register.setFont(new Font("Roboto", Font.PLAIN,14));
+        register.setBackground(Color.darkGray);
         add(register);
 
 
         setSize(800,400); // Set the Frame Size
-        getContentPane().setBackground(Color.gray);
+        getContentPane().setBackground(Color.darkGray);
         setVisible(true);
         setLocation(350,200);
 
