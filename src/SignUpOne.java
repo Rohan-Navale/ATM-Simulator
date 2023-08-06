@@ -7,11 +7,15 @@ import java.util.Random;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
-public class SignUpOne extends JFrame {
-JTextField ffield, rfield,cfield, ifield, ofield, pfield,aafield;
+
+public class SignUpOne extends JFrame implements ActionListener{
+JTextField ffield, rfield,cfield, ifield, ofield, pfield,aafield,stateTextfield;
 JButton sub;
 JDateChooser date;
 JRadioButton male,female,maried,single;
+
+    Random ran   = new Random();
+    long random = Math.abs((ran.nextLong()%9000L)+1000L);
     SignUpOne(){
 
         setLayout(null);/// VVImp otherwise the text will be at the center
@@ -21,6 +25,14 @@ JRadioButton male,female,maried,single;
         a.setFont(new Font("Roboto",Font.BOLD,28));
         a.setBounds(44,48,239,35);
         add(a);
+
+
+
+        JLabel x = new JLabel("Your Application No. "+ random);
+        x.setForeground(Color.white);
+        x.setFont(new Font("Roboto",Font.PLAIN,20));
+        x.setBounds(404,48,320,33);
+        add(x);
 
         JLabel f = new JLabel("Name");
         f.setForeground(Color.white);
@@ -60,18 +72,18 @@ JRadioButton male,female,maried,single;
         JLabel g = new JLabel("Gender");
         g.setForeground(Color.white);
         g.setFont(new Font("Roboto",Font.PLAIN,24));
-        g.setBounds(44,309,320,33);
+        g.setBounds(44,300,320,33);
         add(g);
 
         male = new JRadioButton("Male");
         male.setFont(new Font("Roboto",Font.PLAIN,18));
         male.setForeground(Color.white);
-        male.setBounds(404,316,80,20);
+        male.setBounds(404,306,80,20);
         male.setBackground(Color.darkGray);
         add(male);
 
         female = new JRadioButton("Female");
-        female.setBounds(574,316,100,20);
+        female.setBounds(574,306,100,20);
         female.setFont(new Font("Roboto",Font.PLAIN,18));
         female.setForeground(Color.white);
         female.setBackground(Color.darkGray);
@@ -84,29 +96,29 @@ JRadioButton male,female,maried,single;
         JLabel i = new JLabel("Email Address");
         i.setForeground(Color.white);
         i.setFont(new Font("Roboto",Font.PLAIN,24));
-        i.setBounds(44,372,320,33);
+        i.setBounds(44,352,320,33);
         add(i);
 
         ifield = new JTextField();
-        ifield.setBounds(404,372,370,33);
+        ifield.setBounds(404,352,370,33);
         ifield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(ifield);
 
         JLabel e = new JLabel("Marital Occupation");
         e.setForeground(Color.white);
         e.setFont(new Font("Roboto",Font.PLAIN,24));
-        e.setBounds(44,435,320,33);
+        e.setBounds(44,405,320,33);
         add(e);
 
         maried = new JRadioButton("Married");
         maried.setFont(new Font("Roboto",Font.PLAIN,18));
         maried.setForeground(Color.white);
-        maried.setBounds(404,442,100,20);
+        maried.setBounds(404,412,100,20);
         maried.setBackground(Color.darkGray);
         add(maried);
 
         single = new JRadioButton("Unmarried");
-        single.setBounds(574,442,150,20);
+        single.setBounds(574,412,150,20);
         single.setFont(new Font("Roboto",Font.PLAIN,18));
         single.setForeground(Color.white);
         single.setBackground(Color.darkGray);
@@ -119,40 +131,52 @@ JRadioButton male,female,maried,single;
         JLabel o = new JLabel("Address");
         o.setForeground(Color.white);
         o.setFont(new Font("Roboto",Font.PLAIN,24));
-        o.setBounds(44,498,320,33);
+        o.setBounds(44,458,320,33);
         add(o);
 
         ofield = new JTextField();
-        ofield.setBounds(404,498,370,33);
+        ofield.setBounds(404,458,370,33);
         ofield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(ofield);
 
         JLabel p = new JLabel("City");
         p.setForeground(Color.white);
         p.setFont(new Font("Roboto",Font.PLAIN,24));
-        p.setBounds(44,561,320,33);
+        p.setBounds(44,521,320,33);
         add(p);
 
         pfield = new JTextField();
-        pfield.setBounds(404,561,370,33);
+        pfield.setBounds(404,521,370,33);
         pfield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(pfield);
 
         JLabel aa = new JLabel("PIN Code");
         aa.setForeground(Color.white);
         aa.setFont(new Font("Roboto",Font.PLAIN,24));
-        aa.setBounds(44,624,320,33);
+        aa.setBounds(44,584,320,33);
         add(aa);
 
         aafield = new JTextField();
-        aafield.setBounds(404,624,370,33);
+        aafield.setBounds(404,584,370,33);
         aafield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(aafield);
 
+        JLabel statefield = new JLabel("State");
+        statefield.setForeground(Color.white);
+        statefield.setFont(new Font("Roboto",Font.PLAIN,24));
+        statefield.setBounds(44,647,320,33);
+        add(statefield);
+
+        stateTextfield = new JTextField();
+        stateTextfield.setBounds(404,647,370,33);
+        stateTextfield.setFont(new Font("Roboto", Font.PLAIN,22));
+        add(stateTextfield);
+
         sub = new JButton("Next");
-        sub.setBounds(604,690,170,40);
+        sub.setBounds(604,710,170,40);
         sub.setBackground(Color.DARK_GRAY);
         sub.setForeground(Color.white);
+        sub.addActionListener(this);
         sub.setBorder((Border) new SignUpOne.RoundBorder(40));
         sub.setFont(new Font("Roboto", Font.PLAIN,18));
         add(sub);
@@ -163,6 +187,44 @@ JRadioButton male,female,maried,single;
         getContentPane().setBackground(Color.darkGray);
 
     }
+
+    @Override
+    public void actionPerformed(ActionEvent ac) {
+        String formno = ""+random;
+        String name = ffield.getText();
+        String fname = rfield.getText();
+        String dob = ((JTextField) date.getDateEditor().getUiComponent()).getText();
+        String gender = null;
+        if(male.isSelected()){
+            gender = "Male";
+        } else if(female.isSelected()) {
+            gender = "Female";
+        }
+        String email=ifield.getText();
+        String marital = null;
+        if(maried.isSelected()){
+            marital="Married";
+        } else if(single.isSelected()){
+            marital="Unmarried";
+        }
+        String address = ofield.getText();
+        String city = pfield.getText();
+        String pin = aafield.getText();
+        String state = stateTextfield.getText();
+
+        try{
+            if(name.equals("")){
+                JOptionPane.showMessageDialog(null,"Name cannot be empty");
+            } else {
+                Conn c = new Conn();
+               String query = "insert into signup values('"+formno+"', '"+name+"', '"+fname+"', '"+dob+"', '"+gender+"','"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+pin+"', '"+state+"')";
+                c.s.executeUpdate(query);
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
 
     class RoundBorder implements Border {
         private int radius;
