@@ -1,5 +1,6 @@
 //Sign In -> Application Form -> Additional Details -> Account Details -> ATM Interface Deposit
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,6 +60,7 @@ public class Login extends JFrame implements ActionListener {
         login.addActionListener(this);
         login.setFont(new Font("Roboto", Font.PLAIN,14));
         login.setForeground(Color.white);
+        login.setBorder((Border) new RoundBorder(22));
         login.setBackground(Color.DARK_GRAY);
         add(login);
 
@@ -66,6 +68,7 @@ public class Login extends JFrame implements ActionListener {
         clear.setBounds(360, 238, 80, 28);
         clear.setForeground(Color.white);
         clear.addActionListener(this);
+        clear.setBorder((Border) new RoundBorder(22));
         clear.setFont(new Font("Roboto", Font.PLAIN,14));
         clear.setBackground(Color.DARK_GRAY);
         add(clear);
@@ -74,6 +77,7 @@ public class Login extends JFrame implements ActionListener {
         register.setBounds(360, 276, 190, 28);
         register.setForeground(Color.white);
         register.addActionListener(this);
+        register.setBorder((Border) new RoundBorder(30));
         register.setFont(new Font("Roboto", Font.PLAIN,14));
         register.setBackground(Color.darkGray);
         add(register);
@@ -92,6 +96,22 @@ public class Login extends JFrame implements ActionListener {
 
         }else if(ae.getSource() == login){
 
+        }
+    }
+
+    class RoundBorder implements Border {
+        private int radius;
+        public RoundBorder(int radius) {
+            this.radius = radius;
+        }
+        public Insets getBorderInsets(Component c) {
+            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
+        }
+        public boolean isBorderOpaque() {
+            return true;
+        }
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
         }
     }
     public static void main(String[] args){
