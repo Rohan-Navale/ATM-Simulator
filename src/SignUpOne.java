@@ -7,7 +7,6 @@ import java.util.Random;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
-
 public class SignUpOne extends JFrame implements ActionListener{
 JTextField ffield, rfield,cfield, ifield, ofield, pfield,aafield,stateTextfield;
 JButton sub;
