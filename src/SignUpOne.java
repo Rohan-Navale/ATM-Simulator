@@ -16,7 +16,7 @@ JRadioButton male,female,maried,single;
     Random ran   = new Random();
     long random = Math.abs((ran.nextLong()%9000L)+1000L);
     SignUpOne(){
-
+        setTitle("New User Registration - Page 1");
         setLayout(null);/// VVImp otherwise the text will be at the center
 
         JLabel a = new JLabel("Personal Details:");
