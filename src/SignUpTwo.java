@@ -6,7 +6,6 @@ import java.util.Random;
 public class SignUpTwo extends JFrame {
     JTextField rfield, cfield, ifield, efield, ofield, pfield, aafield;
     SignUpTwo(){
-
         setLayout(null);/// VVImp otherwise the text will be at the center
 
         JLabel a = new JLabel("Additional Details:");
