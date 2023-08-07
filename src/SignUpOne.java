@@ -25,8 +25,6 @@ JRadioButton male,female,maried,single;
         a.setBounds(44,48,239,35);
         add(a);
 
-
-
         JLabel x = new JLabel("Your Application No. "+ random);
         x.setForeground(Color.white);
         x.setFont(new Font("Roboto",Font.PLAIN,20));
