@@ -216,6 +216,9 @@ JRadioButton male,female,maried,single;
                 Conn c = new Conn();
                String query = "insert into signup values('"+formno+"', '"+name+"', '"+fname+"', '"+dob+"', '"+gender+"','"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+pin+"', '"+state+"')";
                 c.s.executeUpdate(query);
+
+                setVisible(false);
+                new SignUpTwo(formno).setVisible(true);
             }
         } catch (Exception e){
             System.out.println(e);

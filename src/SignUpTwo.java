@@ -1,14 +1,18 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.util.Random;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SignUpTwo extends JFrame {
+public class SignUpTwo extends JFrame implements ActionListener {
+    long random;
     JComboBox rfield, cfield, ifield, efield, ofield;
     JTextField pfield, aafield;
     JButton sub;
-    JRadioButton male,female;
-    SignUpTwo(){
+    JRadioButton male,female,maried,single;
+    String formno;
+    SignUpTwo(String formno){
+        formno= this.formno;
         setTitle("New User Registration - Page 2");
         setLayout(null);/// VVImp otherwise the text will be at the center
 
@@ -106,14 +110,14 @@ public class SignUpTwo extends JFrame {
         s.setBounds(44,541,320,33);
         add(s);
 
-        JRadioButton maried = new JRadioButton("Yes");
+        maried = new JRadioButton("Yes");
         maried.setFont(new Font("Roboto",Font.PLAIN,18));
         maried.setForeground(Color.white);
         maried.setBounds(404,541,100,20);
         maried.setBackground(Color.darkGray);
         add(maried);
 
-        JRadioButton single = new JRadioButton("No");
+        single = new JRadioButton("No");
         single.setBounds(574,541,150,20);
         single.setFont(new Font("Roboto",Font.PLAIN,18));
         single.setForeground(Color.white);
@@ -137,7 +141,7 @@ public class SignUpTwo extends JFrame {
         male.setBackground(Color.darkGray);
         add(male);
 
-         female = new JRadioButton("No");
+        female = new JRadioButton("No");
         female.setBounds(574,604,100,20);
         female.setFont(new Font("Roboto",Font.PLAIN,18));
         female.setForeground(Color.white);
@@ -152,6 +156,7 @@ public class SignUpTwo extends JFrame {
         sub.setBounds(604,670,170,40);
         sub.setBackground(Color.DARK_GRAY);
         sub.setForeground(Color.white);
+        sub.addActionListener(this);
         sub.setFont(new Font("Roboto", Font.PLAIN,18));
         sub.setBorder((Border) new RoundBorder(40));
         add(sub);
@@ -162,6 +167,40 @@ public class SignUpTwo extends JFrame {
         setVisible(true);
         getContentPane().setBackground(Color.darkGray);
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        String religion  = (String) rfield.getSelectedItem();
+        String cat = (String) cfield.getSelectedItem();
+        String inc = (String) ifield.getSelectedItem();
+        String ed = (String) efield.getSelectedItem();
+        String occ = (String) ofield.getSelectedItem();
+        String pn = pfield.getText();
+        String ad = aafield.getText();
+
+        String senior = null;
+        if(male.isSelected()){
+            senior = "Yes";
+        } else if(female.isSelected()) {
+            senior = "No";
+        }
+        String exacc = null;
+        if(male.isSelected()){
+            senior="Yes";
+        } else if(single.isSelected()){
+            senior="No";
+        }
+
+        try{
+                Conn c = new Conn();
+                String query = "insert into signuptwo values('" + formno + "', '" + religion + "', '" + cat + "', '" + inc + "', '" + ed + "','" + occ + "', '" + pn + "', '" + ad + "', '" + senior + "', '" + exacc + "')";
+            System.out.println("1 Data added successfully");
+                c.s.executeUpdate(query);
+            System.out.println("2 Data added successfully");
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     class RoundBorder implements Border {
@@ -181,6 +220,6 @@ public class SignUpTwo extends JFrame {
     }
 
     public static void main(String[] args){
-        new SignUpTwo();
+        new SignUpTwo("");
     }
 }
