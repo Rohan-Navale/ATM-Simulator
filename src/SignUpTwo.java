@@ -4,7 +4,10 @@ import java.awt.*;
 import java.util.Random;
 
 public class SignUpTwo extends JFrame {
-    JTextField rfield, cfield, ifield, efield, ofield, pfield, aafield;
+    JComboBox rfield, cfield, ifield, efield, ofield;
+    JTextField pfield, aafield;
+    JButton sub;
+    JRadioButton male,female;
     SignUpTwo(){
         setTitle("New User Registration - Page 2");
         setLayout(null);/// VVImp otherwise the text will be at the center
@@ -21,7 +24,8 @@ public class SignUpTwo extends JFrame {
         r.setBounds(44,100,320,33);
         add(r);
 
-        rfield = new JTextField();
+        String valReligion[]= {"Hindu","Muslim","Sikh","Chrisian","Other"};
+        rfield = new JComboBox(valReligion);
         rfield.setBounds(404,100,370,33);
         rfield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(rfield);
@@ -32,7 +36,8 @@ public class SignUpTwo extends JFrame {
         c.setBounds(44,163,320,33);
         add(c);
 
-        cfield = new JTextField();
+        String valCategory[]= {"General","OBC","SC","ST","Other"};
+        cfield = new JComboBox(valCategory);
         cfield.setBounds(404,163,370,33);
         cfield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(cfield);
@@ -43,7 +48,8 @@ public class SignUpTwo extends JFrame {
         i.setBounds(44,226,320,33);
         add(i);
 
-        ifield = new JTextField();
+        String valIncome[]= {"Null","<150000","<250000","<500000","Upto 1000000"};
+        ifield = new JComboBox(valIncome);
         ifield.setBounds(404,226,370,33);
         ifield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(ifield);
@@ -54,7 +60,8 @@ public class SignUpTwo extends JFrame {
         e.setBounds(44,289,320,33);
         add(e);
 
-        efield = new JTextField();
+        String valEducation[]= {"Non Graduation","Graduate","Post Graduate","Doctorate","Other"};
+        efield = new JComboBox(valEducation);
         efield.setBounds(404,289,370,33);
         efield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(efield);
@@ -65,7 +72,8 @@ public class SignUpTwo extends JFrame {
         o.setBounds(44,352,320,33);
         add(o);
 
-        ofield = new JTextField();
+        String valOccupation[]= {"Salaried","Self Employed","Business","Student","Other"};
+        ofield = new JComboBox(valOccupation);
         ofield.setBounds(404,352,370,33);
         ofield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(ofield);
@@ -122,14 +130,14 @@ public class SignUpTwo extends JFrame {
         ee.setBounds(44,604,320,33);
         add(ee);
 
-        JRadioButton male = new JRadioButton("Yes");
+        male = new JRadioButton("Yes");
         male.setFont(new Font("Roboto",Font.PLAIN,18));
         male.setForeground(Color.white);
         male.setBounds(404,604,80,20);
         male.setBackground(Color.darkGray);
         add(male);
 
-        JRadioButton female = new JRadioButton("No");
+         female = new JRadioButton("No");
         female.setBounds(574,604,100,20);
         female.setFont(new Font("Roboto",Font.PLAIN,18));
         female.setForeground(Color.white);
@@ -140,7 +148,7 @@ public class SignUpTwo extends JFrame {
         gendergroup.add(male);
         gendergroup.add(female);
 
-        JButton sub = new JButton("Submit");
+        sub = new JButton("Submit");
         sub.setBounds(604,670,170,40);
         sub.setBackground(Color.DARK_GRAY);
         sub.setForeground(Color.white);
