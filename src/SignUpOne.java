@@ -8,13 +8,13 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
 public class SignUpOne extends JFrame implements ActionListener{
-JTextField ffield, rfield,cfield, ifield, ofield, pfield,aafield,stateTextfield;
+JTextField nameField, fatherField,cfield, emailField, addressField, cityField,aafield,stateTextfield;
 JButton sub;
 JDateChooser date;
 JRadioButton male,female,maried,single;
-
     Random ran   = new Random();
     long random = Math.abs((ran.nextLong()%9000L)+1000L);
+    String formno = ""+random;
     SignUpOne(){
         setTitle("New User Registration - Page 1");
         setLayout(null);/// VVImp otherwise the text will be at the center
@@ -37,10 +37,10 @@ JRadioButton male,female,maried,single;
         f.setBounds(44,120,320,33);
         add(f);
 
-        ffield = new JTextField();
-        ffield.setBounds(404,120,370,33);
-        ffield.setFont(new Font("Roboto", Font.PLAIN,22));
-        add(ffield);
+        nameField = new JTextField();
+        nameField.setBounds(404,120,370,33);
+        nameField.setFont(new Font("Roboto", Font.PLAIN,22));
+        add(nameField);
 
 
         JLabel r = new JLabel("Father's Name");
@@ -49,10 +49,10 @@ JRadioButton male,female,maried,single;
         r.setBounds(44,183,320,33);
         add(r);
 
-        rfield = new JTextField();
-        rfield.setBounds(404,183,370,33);
-        rfield.setFont(new Font("Roboto", Font.PLAIN,22));
-        add(rfield);
+        fatherField = new JTextField();
+        fatherField.setBounds(404,183,370,33);
+        fatherField.setFont(new Font("Roboto", Font.PLAIN,22));
+        add(fatherField);
 
         JLabel c = new JLabel("Date of Birth");
         c.setForeground(Color.white);
@@ -96,10 +96,10 @@ JRadioButton male,female,maried,single;
         i.setBounds(44,352,320,33);
         add(i);
 
-        ifield = new JTextField();
-        ifield.setBounds(404,352,370,33);
-        ifield.setFont(new Font("Roboto", Font.PLAIN,22));
-        add(ifield);
+        emailField = new JTextField();
+        emailField.setBounds(404,352,370,33);
+        emailField.setFont(new Font("Roboto", Font.PLAIN,22));
+        add(emailField);
 
         JLabel e = new JLabel("Marital Occupation");
         e.setForeground(Color.white);
@@ -131,10 +131,10 @@ JRadioButton male,female,maried,single;
         o.setBounds(44,458,320,33);
         add(o);
 
-        ofield = new JTextField();
-        ofield.setBounds(404,458,370,33);
-        ofield.setFont(new Font("Roboto", Font.PLAIN,22));
-        add(ofield);
+        addressField = new JTextField();
+        addressField.setBounds(404,458,370,33);
+        addressField.setFont(new Font("Roboto", Font.PLAIN,22));
+        add(addressField);
 
         JLabel p = new JLabel("City");
         p.setForeground(Color.white);
@@ -142,10 +142,10 @@ JRadioButton male,female,maried,single;
         p.setBounds(44,521,320,33);
         add(p);
 
-        pfield = new JTextField();
-        pfield.setBounds(404,521,370,33);
-        pfield.setFont(new Font("Roboto", Font.PLAIN,22));
-        add(pfield);
+        cityField = new JTextField();
+        cityField.setBounds(404,521,370,33);
+        cityField.setFont(new Font("Roboto", Font.PLAIN,22));
+        add(cityField);
 
         JLabel aa = new JLabel("PIN Code");
         aa.setForeground(Color.white);
@@ -173,7 +173,7 @@ JRadioButton male,female,maried,single;
         sub.setBounds(604,710,170,40);
         sub.setBackground(Color.DARK_GRAY);
         sub.setForeground(Color.white);
-        sub.addActionListener(this);
+        sub.addActionListener(this); ///////////MUST ADD BUTTON else data will not be added to db
         sub.setBorder((Border) new SignUpOne.RoundBorder(40));
         sub.setFont(new Font("Roboto", Font.PLAIN,18));
         add(sub);
@@ -187,9 +187,9 @@ JRadioButton male,female,maried,single;
 
     @Override
     public void actionPerformed(ActionEvent ac) {
-        String formno = ""+random;
-        String name = ffield.getText();
-        String fname = rfield.getText();
+
+        String name = nameField.getText();
+        String fname = fatherField.getText();
         String dob = ((JTextField) date.getDateEditor().getUiComponent()).getText();
         String gender = null;
         if(male.isSelected()){
@@ -197,15 +197,15 @@ JRadioButton male,female,maried,single;
         } else if(female.isSelected()) {
             gender = "Female";
         }
-        String email=ifield.getText();
+        String email=emailField.getText();
         String marital = null;
         if(maried.isSelected()){
             marital="Married";
         } else if(single.isSelected()){
             marital="Unmarried";
         }
-        String address = ofield.getText();
-        String city = pfield.getText();
+        String address = addressField.getText();
+        String city = cityField.getText();
         String pin = aafield.getText();
         String state = stateTextfield.getText();
 

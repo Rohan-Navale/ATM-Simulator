@@ -10,9 +10,11 @@ public class SignUpTwo extends JFrame implements ActionListener {
     JTextField pfield, aafield;
     JButton sub;
     JRadioButton male,female,maried,single;
-    String formno;
+    String formNo;
     SignUpTwo(String formno){
-        formno= this.formno;
+       // formno= this.formNo;
+        formNo=formno; // assigning string to parameter
+        System.out.println(formNo);
         setTitle("New User Registration - Page 2");
         setLayout(null);/// VVImp otherwise the text will be at the center
 
@@ -187,17 +189,15 @@ public class SignUpTwo extends JFrame implements ActionListener {
         }
         String exacc = null;
         if(male.isSelected()){
-            senior="Yes";
+            exacc="Yes";
         } else if(single.isSelected()){
-            senior="No";
+            exacc="No";
         }
 
         try{
                 Conn c = new Conn();
-                String query = "insert into signuptwo values('" + formno + "', '" + religion + "', '" + cat + "', '" + inc + "', '" + ed + "','" + occ + "', '" + pn + "', '" + ad + "', '" + senior + "', '" + exacc + "')";
-            System.out.println("1 Data added successfully");
+                String query = "insert into signuptwo values('" +formNo+ "', '" + religion + "', '" + cat + "', '" + inc + "', '" + ed + "','" + occ + "', '" + pn + "', '" + ad + "', '" + senior + "', '" + exacc + "')";
                 c.s.executeUpdate(query);
-            System.out.println("2 Data added successfully");
         } catch (Exception e){
             System.out.println(e);
         }
