@@ -42,7 +42,6 @@ JRadioButton male,female,maried,single;
         nameField.setFont(new Font("Roboto", Font.PLAIN,22));
         add(nameField);
 
-
         JLabel r = new JLabel("Father's Name");
         r.setForeground(Color.white);
         r.setFont(new Font("Roboto",Font.PLAIN,24));
