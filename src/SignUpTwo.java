@@ -12,7 +12,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
     JRadioButton male,female,maried,single;
     String formNo;
     SignUpTwo(String formno){
-       // formno= this.formNo;
+
         formNo=formno; // assigning  global string to  passes parameter
         System.out.println(formNo);
         setTitle("New User Registration - Page 2");
