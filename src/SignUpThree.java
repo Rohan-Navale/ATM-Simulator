@@ -203,6 +203,30 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
             String cardNo = ""+ cardnumber;
             String pinNo  = ""+ PIN;
 
+            String facility = "";
+            if(card.isSelected())
+                facility=facility+"ATM Card";
+            if(ib.isSelected())
+                facility=facility+"Internet Banking";
+            if(mb.isSelected())
+                facility=facility+"Mobile Banking";
+            if(ea.isSelected())
+                facility=facility+"Email Alerts";
+            if(ch.isSelected())
+                facility=facility+"Cheque Book";
+            if(es.isSelected())
+                facility=facility+"E-statement";
+
+            try {
+                if(accountType.equals("")){
+                    JOptionPane.showMessageDialog(null,"Please select account type");
+                } else {
+                    String query1 = "insert into signupthree values ('"+formNo+"','"+accountType+"','"+cardNo+"','"+pinNo+"','"+facility+"')";
+
+                }
+            } catch (Exception e){
+                System.out.println(e);
+            }
 
         } else if(ae.getSource()==back){
 
