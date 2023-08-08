@@ -24,6 +24,12 @@ public class SignUpTwo extends JFrame implements ActionListener {
         a.setBounds(44,28,239,35);
         add(a);
 
+        JLabel x = new JLabel("Your Application No. "+ formNo);
+        x.setForeground(Color.white);
+        x.setFont(new Font("Roboto",Font.PLAIN,20));
+        x.setBounds(404,48,320,33);
+        add(x);
+
         JLabel r = new JLabel("Religion");
         r.setForeground(Color.white);
         r.setFont(new Font("Roboto",Font.PLAIN,24));
@@ -198,6 +204,8 @@ public class SignUpTwo extends JFrame implements ActionListener {
                 Conn c = new Conn();
                 String query = "insert into signuptwo values('" +formNo+ "', '" + religion + "', '" + cat + "', '" + inc + "', '" + ed + "','" + occ + "', '" + pn + "', '" + ad + "', '" + senior + "', '" + exacc + "')";
                 c.s.executeUpdate(query);
+                setVisible(false);
+                new SignUpThree(formNo).setVisible(true);
         } catch (Exception e){
             System.out.println(e);
         }
