@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import javax.swing.*;
 import javax.swing.border.Border;
 
@@ -8,8 +9,11 @@ public class SignUpThree extends JFrame implements ActionListener {
 String formNo;
 JCheckBox card,ib,mb,ea,ch,es,declare;
 JRadioButton sa,ca,fda,rda;
-
 JButton back, submit;
+
+Random random=new Random();
+Long cardnumber = Math.abs (random.nextLong() % 90000000L) + 5040936000000000L;
+Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
 
     SignUpThree(String formno){
         formNo=formno;
@@ -66,6 +70,13 @@ JButton back, submit;
         rda.setBounds(600,180,200,50);
         add(rda);
 
+        ButtonGroup grouptype = new ButtonGroup();
+        grouptype.add(sa);
+        grouptype.add(ca);
+        grouptype.add(fda);
+        grouptype.add(rda);
+
+
         JLabel cardNo = new JLabel("Card Number:");
         cardNo.setFont(new Font("Roboto",Font.PLAIN,24));
         cardNo.setBounds(44,266,200,33);
@@ -78,13 +89,25 @@ JButton back, submit;
         yourDigits.setForeground(Color.WHITE);
         add(yourDigits);
 
+        JLabel actualcardNo = new JLabel(""+cardnumber);
+        actualcardNo.setFont(new Font("Roboto",Font.PLAIN,22));
+        actualcardNo.setBounds(304,266,500,33);
+        actualcardNo.setForeground(Color.WHITE);
+        add(actualcardNo);
+
         JLabel pin = new JLabel("PIN:");
         pin.setFont(new Font("Roboto",Font.PLAIN,24));
-        pin.setBounds(44,340,50,33);
+        pin.setBounds(44,340,500,33);
         pin.setForeground(Color.WHITE);
         add(pin);
 
-        JLabel note = new JLabel("NOTE: Copy the Card Number and PIN for future use");
+        JLabel pinNo = new JLabel(""+PIN);
+        pinNo.setFont(new Font("Roboto",Font.PLAIN,22));
+        pinNo.setBounds(304,340,100,33);
+        pinNo.setForeground(Color.WHITE);
+        add(pinNo);
+
+        JLabel note = new JLabel("Note down the Card Number and PIN for future use");
         note.setFont(new Font("Roboto",Font.PLAIN,14));
         note.setBounds(44,390,400,33);
         note.setForeground(Color.yellow);
@@ -165,8 +188,25 @@ JButton back, submit;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource()==submit){
+            String accountType = null;
+            if(sa.isSelected())
+                accountType="Savings Account";
+            else if(ca.isSelected())
+                accountType="Current Account";
+            else if(fda.isSelected())
+                accountType="Fixed Deposit Account";
+            else if(rda.isSelected())
+                accountType="Reccuring Deposit Account";
 
+            String cardNo = ""+ cardnumber;
+            String pinNo  = ""+ PIN;
+
+
+        } else if(ae.getSource()==back){
+
+        }
     }
 
     class RoundBorder implements Border {
