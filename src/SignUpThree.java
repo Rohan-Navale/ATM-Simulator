@@ -173,56 +173,72 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         submit.setForeground(Color.WHITE);
         submit.setBackground(Color.DARK_GRAY);;
         submit.addActionListener(this);
-        submit.setBounds(600,720,170,40);
+        submit.setBounds(604,680,170,40);
         submit.setBorder((Border) new SignUpThree.RoundBorder(40));
         add(submit);
 
-        back = new JButton("Clear");
+        back = new JButton("Back");
         back.setFont(new Font("Roboto",Font.PLAIN,18));
         back.setForeground(Color.WHITE);
         back.setBackground(Color.DARK_GRAY);;
         back.addActionListener(this);
-        back.setBounds(400,720,170,40);
+        back.setBounds(44,680,170,40);
         back.setBorder((Border) new SignUpThree.RoundBorder(40));
         add(back);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource()==back){
+            setVisible(false);
+            new SignUpTwo(formNo).setVisible(true);
+        }
+
         if(ae.getSource()==submit){
-            String accountType = null;
+            String saccountType = "";
             if(sa.isSelected())
-                accountType="Savings Account";
+                saccountType="Savings Account";
             else if(ca.isSelected())
-                accountType="Current Account";
+                saccountType="Current Account";
             else if(fda.isSelected())
-                accountType="Fixed Deposit Account";
+                saccountType="Fixed Deposit Account";
             else if(rda.isSelected())
-                accountType="Reccuring Deposit Account";
+                saccountType="Reccuring Deposit Account";
 
             String cardNo = ""+ cardnumber;
             String pinNo  = ""+ PIN;
 
             String facility = "";
             if(card.isSelected())
-                facility=facility+"ATM Card";
+                facility=facility+"ATM Card, ";
             if(ib.isSelected())
-                facility=facility+"Internet Banking";
+                facility=facility+"Internet Banking, ";
             if(mb.isSelected())
-                facility=facility+"Mobile Banking";
+                facility=facility+"Mobile Banking, ";
             if(ea.isSelected())
-                facility=facility+"Email Alerts";
+                facility=facility+"Email Alerts, ";
             if(ch.isSelected())
-                facility=facility+"Cheque Book";
+                facility=facility+"Cheque Book, ";
             if(es.isSelected())
                 facility=facility+"E-statement";
 
-            try {
-                if(accountType.equals("")){
-                    JOptionPane.showMessageDialog(null,"Please select account type");
-                } else {
-                    String query1 = "insert into signupthree values ('"+formNo+"','"+accountType+"','"+cardNo+"','"+pinNo+"','"+facility+"')";
+            String declaration = "";
+            if(declare.isSelected()){
+                declaration = "Selected";
+            }
 
+            try {
+                if(saccountType.equals("")){
+                    JOptionPane.showMessageDialog(null,"Account Type cannot be empty");
+                } if(declaration.equals("")){
+                    JOptionPane.showMessageDialog(null,"Please agree to the delcaration");
+                } else {
+                    Conn c3 = new Conn();
+                    String query1 = "insert into signupthree values ('"+formNo+"','"+saccountType+"','"+cardNo+"','"+pinNo+"','"+facility+"')";
+                    String query2 = "insert into logIn values ('"+formNo+"','"+cardNo+"','"+pinNo+"')";
+
+                    c3.s.executeUpdate(query1);
+                    c3.s.executeUpdate(query2);
                 }
             } catch (Exception e){
                 System.out.println(e);
