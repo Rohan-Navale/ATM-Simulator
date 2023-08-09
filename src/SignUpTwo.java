@@ -8,7 +8,7 @@ public class SignUpTwo extends JFrame implements ActionListener {
     long random;
     JComboBox rfield, cfield, ifield, efield, ofield;
     JTextField pfield, aafield;
-    JButton sub;
+    JButton sub, back;
     JRadioButton male,female,maried,single;
     String formNo;
     SignUpTwo(String formno){
@@ -160,14 +160,23 @@ public class SignUpTwo extends JFrame implements ActionListener {
         gendergroup.add(male);
         gendergroup.add(female);
 
-        sub = new JButton("Submit");
-        sub.setBounds(604,670,170,40);
+        sub = new JButton("Next");
+        sub.setBounds(604,680,170,40);
         sub.setBackground(Color.DARK_GRAY);
         sub.setForeground(Color.white);
         sub.addActionListener(this);
         sub.setFont(new Font("Roboto", Font.PLAIN,18));
         sub.setBorder((Border) new RoundBorder(40));
         add(sub);
+
+        back = new JButton("Back");
+        back.setBounds(44,680,170,40);
+        back.setBackground(Color.DARK_GRAY);
+        back.setForeground(Color.white);
+        back.addActionListener(this);
+        back.setFont(new Font("Roboto", Font.PLAIN,18));
+        back.setBorder((Border) new RoundBorder(40));
+        add(back);
 
 
         setSize(850,800);
@@ -179,35 +188,42 @@ public class SignUpTwo extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        String religion  = (String) rfield.getSelectedItem();
-        String cat = (String) cfield.getSelectedItem();
-        String inc = (String) ifield.getSelectedItem();
-        String ed = (String) efield.getSelectedItem();
-        String occ = (String) ofield.getSelectedItem();
-        String pn = pfield.getText();
-        String ad = aafield.getText();
-
-        String senior = null;
-        if(male.isSelected()){
-            senior = "Yes";
-        } else if(female.isSelected()) {
-            senior = "No";
-        }
-        String exacc = null;
-        if(male.isSelected()){
-            exacc="Yes";
-        } else if(single.isSelected()){
-            exacc="No";
+        if(ae.getSource()==back){
+            setVisible(false);
+            new SignUpOne().setVisible(true);
         }
 
-        try{
+        if(ae.getSource()==sub) {
+            String religion = (String) rfield.getSelectedItem();
+            String cat = (String) cfield.getSelectedItem();
+            String inc = (String) ifield.getSelectedItem();
+            String ed = (String) efield.getSelectedItem();
+            String occ = (String) ofield.getSelectedItem();
+            String pn = pfield.getText();
+            String ad = aafield.getText();
+
+            String senior = null;
+            if (male.isSelected()) {
+                senior = "Yes";
+            } else if (female.isSelected()) {
+                senior = "No";
+            }
+            String exacc = null;
+            if (male.isSelected()) {
+                exacc = "Yes";
+            } else if (single.isSelected()) {
+                exacc = "No";
+            }
+
+            try {
                 Conn c = new Conn();
-                String query = "insert into signuptwo values('" +formNo+ "', '" + religion + "', '" + cat + "', '" + inc + "', '" + ed + "','" + occ + "', '" + pn + "', '" + ad + "', '" + senior + "', '" + exacc + "')";
+                String query = "insert into signuptwo values('" + formNo + "', '" + religion + "', '" + cat + "', '" + inc + "', '" + ed + "','" + occ + "', '" + pn + "', '" + ad + "', '" + senior + "', '" + exacc + "')";
                 c.s.executeUpdate(query);
                 setVisible(false);
                 new SignUpThree(formNo).setVisible(true);
-        } catch (Exception e){
-            System.out.println(e);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }
 
