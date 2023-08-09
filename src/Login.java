@@ -64,7 +64,7 @@ public class Login extends JFrame implements ActionListener {
         login.setBackground(Color.DARK_GRAY);
         add(login);
 
-        clear = new JButton("Clear");
+        clear = new JButton("Back");
         clear.setBounds(360, 238, 80, 28);
         clear.setForeground(Color.white);
         clear.addActionListener(this);
