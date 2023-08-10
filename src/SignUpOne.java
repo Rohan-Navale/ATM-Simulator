@@ -62,7 +62,7 @@ JRadioButton male,female,maried,single;
         date = new JDateChooser(); //Jcalender.jar file was not available. Downloaded and added. File-> Project Structure -> Library -> Add -> Apply
         date.setBounds(404,246,370,33);
         date.setForeground(Color.BLACK);
-        date.setFont(new Font("Roboto",Font.PLAIN,22));
+        date.setFont(new Font("Roboto",Font.PLAIN,18));
         add(date);
 
         JLabel g = new JLabel("Gender");
@@ -75,14 +75,14 @@ JRadioButton male,female,maried,single;
         male.setFont(new Font("Roboto",Font.PLAIN,18));
         male.setForeground(Color.white);
         male.setBounds(404,306,80,20);
-        male.setBackground(Color.darkGray);
+        male.setBackground(new Color(46,51,90));
         add(male);
 
         female = new JRadioButton("Female");
         female.setBounds(574,306,100,20);
         female.setFont(new Font("Roboto",Font.PLAIN,18));
         female.setForeground(Color.white);
-        female.setBackground(Color.darkGray);
+        female.setBackground(new Color(46,51,90));
         add(female);
 
         ButtonGroup gendergroup = new ButtonGroup(); // This will remove the option of selecting both the options
@@ -100,7 +100,7 @@ JRadioButton male,female,maried,single;
         emailField.setFont(new Font("Roboto", Font.PLAIN,22));
         add(emailField);
 
-        JLabel e = new JLabel("Marital Occupation");
+        JLabel e = new JLabel("Marital Status");
         e.setForeground(Color.white);
         e.setFont(new Font("Roboto",Font.PLAIN,24));
         e.setBounds(44,405,320,33);
@@ -110,14 +110,14 @@ JRadioButton male,female,maried,single;
         maried.setFont(new Font("Roboto",Font.PLAIN,18));
         maried.setForeground(Color.white);
         maried.setBounds(404,412,100,20);
-        maried.setBackground(Color.darkGray);
+        maried.setBackground(new Color(46,51,90));
         add(maried);
 
         single = new JRadioButton("Unmarried");
         single.setBounds(574,412,150,20);
         single.setFont(new Font("Roboto",Font.PLAIN,18));
         single.setForeground(Color.white);
-        single.setBackground(Color.darkGray);
+        single.setBackground(new Color(46,51,90));
         add(single);
 
         ButtonGroup maritalgroup = new ButtonGroup(); // This will remove the option of selecting both the options
@@ -170,17 +170,16 @@ JRadioButton male,female,maried,single;
 
         sub = new JButton("Next");
         sub.setBounds(604,710,170,40);
-        sub.setBackground(Color.DARK_GRAY);
+        sub.setBackground(new Color(92,70,156));
         sub.setForeground(Color.white);
         sub.addActionListener(this); ///////////MUST ADD BUTTON else data will not be added to db
-        sub.setBorder((Border) new SignUpOne.RoundBorder(40));
-        sub.setFont(new Font("Roboto", Font.PLAIN,18));
+        sub.setFont(new Font("Raleway", Font.BOLD,20));
         add(sub);
 
         setSize(850,800);
         setLocation(350,10);
         setVisible(true);
-        getContentPane().setBackground(Color.darkGray);
+        getContentPane().setBackground(new Color(46,51,90));
 
     }
 
@@ -223,24 +222,6 @@ JRadioButton male,female,maried,single;
             System.out.println(e);
         }
     }
-
-
-    class RoundBorder implements Border {
-        private int radius;
-        public RoundBorder(int radius) {
-            this.radius = radius;
-        }
-        public Insets getBorderInsets(Component c) {
-            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-        }
-        public boolean isBorderOpaque() {
-            return true;
-        }
-        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-        }
-    }
-
     public static void main(String[] args){
         new SignUpOne();
     }
