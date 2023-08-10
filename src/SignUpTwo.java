@@ -122,14 +122,14 @@ public class SignUpTwo extends JFrame implements ActionListener {
         maried.setFont(new Font("Roboto",Font.PLAIN,18));
         maried.setForeground(Color.white);
         maried.setBounds(404,541,100,20);
-        maried.setBackground(Color.darkGray);
+        maried.setBackground(new Color(46,51,90));
         add(maried);
 
         single = new JRadioButton("No");
         single.setBounds(574,541,150,20);
         single.setFont(new Font("Roboto",Font.PLAIN,18));
         single.setForeground(Color.white);
-        single.setBackground(Color.darkGray);
+        single.setBackground(new Color(46,51,90));
         add(single);
 
         ButtonGroup maritalgroup = new ButtonGroup(); // This will remove the option of selecting both the options
@@ -146,14 +146,14 @@ public class SignUpTwo extends JFrame implements ActionListener {
         male.setFont(new Font("Roboto",Font.PLAIN,18));
         male.setForeground(Color.white);
         male.setBounds(404,604,80,20);
-        male.setBackground(Color.darkGray);
+        male.setBackground(new Color(46,51,90));
         add(male);
 
         female = new JRadioButton("No");
         female.setBounds(574,604,100,20);
         female.setFont(new Font("Roboto",Font.PLAIN,18));
         female.setForeground(Color.white);
-        female.setBackground(Color.darkGray);
+        female.setBackground(new Color(46,51,90));
         add(female);
 
         ButtonGroup gendergroup = new ButtonGroup(); // This will remove the option of selecting both the options
@@ -174,7 +174,6 @@ public class SignUpTwo extends JFrame implements ActionListener {
         back.setForeground(Color.white);
         back.addActionListener(this);
         back.setFont(new Font("Raleway", Font.BOLD,20));
-        back.setBorderPainted(false);
         add(back);
 
 
