@@ -162,27 +162,26 @@ public class SignUpTwo extends JFrame implements ActionListener {
 
         sub = new JButton("Next");
         sub.setBounds(604,680,170,40);
-        sub.setBackground(Color.DARK_GRAY);
+        sub.setBackground(new Color(92,70,156));
         sub.setForeground(Color.white);
         sub.addActionListener(this);
-        sub.setFont(new Font("Roboto", Font.PLAIN,18));
-        sub.setBorder((Border) new RoundBorder(40));
+        sub.setFont(new Font("Raleway", Font.BOLD,20));
         add(sub);
 
         back = new JButton("Back");
         back.setBounds(44,680,170,40);
-        back.setBackground(Color.DARK_GRAY);
+        back.setBackground(new Color(29,38,125));
         back.setForeground(Color.white);
         back.addActionListener(this);
-        back.setFont(new Font("Roboto", Font.PLAIN,18));
-        back.setBorder((Border) new RoundBorder(40));
+        back.setFont(new Font("Raleway", Font.BOLD,20));
+        back.setBorderPainted(false);
         add(back);
 
 
         setSize(850,800);
         setLocation(350,10);
         setVisible(true);
-        getContentPane().setBackground(Color.darkGray);
+        getContentPane().setBackground(new Color(46,51,90));
 
     }
 
@@ -224,22 +223,6 @@ public class SignUpTwo extends JFrame implements ActionListener {
             } catch (Exception e) {
                 System.out.println(e);
             }
-        }
-    }
-
-    class RoundBorder implements Border {
-        private int radius;
-        public RoundBorder(int radius) {
-            this.radius = radius;
-        }
-        public Insets getBorderInsets(Component c) {
-            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-        }
-        public boolean isBorderOpaque() {
-            return true;
-        }
-        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
         }
     }
 
