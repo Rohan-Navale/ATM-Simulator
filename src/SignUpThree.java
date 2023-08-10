@@ -21,7 +21,7 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         setSize(850,820);
         setLocation(350,10);
         setVisible(true);
-        getContentPane().setBackground(Color.darkGray);
+        getContentPane().setBackground(new Color(46,51,90));
         setLayout(null);
 
         JLabel accountDetails = new JLabel("Account Details:");
@@ -45,28 +45,28 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         sa = new JRadioButton("Savings Account");
         sa.setFont(new Font("Roboto",Font.PLAIN,20));
         sa.setForeground(Color.WHITE);
-        sa.setBackground(Color.DARK_GRAY);
+        sa.setBackground(new Color(46,51,90));
         sa.setBounds(44,180,200,50);
         add(sa);
 
         ca = new JRadioButton("Current Account");
         ca.setFont(new Font("Roboto",Font.PLAIN,20));
         ca.setForeground(Color.WHITE);
-        ca.setBackground(Color.DARK_GRAY);
+        ca.setBackground(new Color(46,51,90));
         ca.setBounds(244,180,200,50);
         add(ca);
 
         fda = new JRadioButton("FD Account");
         fda.setFont(new Font("Roboto",Font.PLAIN,20));
         fda.setForeground(Color.WHITE);
-        fda.setBackground(Color.DARK_GRAY);
+        fda.setBackground(new Color(46,51,90));
         fda.setBounds(444,180,150,50);
         add(fda);
 
         rda = new JRadioButton("RD Account");
         rda.setFont(new Font("Roboto",Font.PLAIN,20));
         rda.setForeground(Color.WHITE);
-        rda.setBackground(Color.DARK_GRAY);
+        rda.setBackground(new Color(46,51,90));
         rda.setBounds(600,180,200,50);
         add(rda);
 
@@ -122,49 +122,49 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         card = new JCheckBox("ATM Card");
         card.setFont(new Font("Roboto",Font.PLAIN,20));
         card.setForeground(Color.WHITE);
-        card.setBackground(Color.DARK_GRAY);
+        card.setBackground(new Color(46,51,90));
         card.setBounds(86,490,150,50);
         add(card);
 
         ib = new JCheckBox("Internet Banking");
         ib.setFont(new Font("Roboto",Font.PLAIN,20));
         ib.setForeground(Color.WHITE);
-        ib.setBackground(Color.DARK_GRAY);
+        ib.setBackground(new Color(46,51,90));
         ib.setBounds(269,490,180,50);
         add(ib);
 
         mb = new JCheckBox("Mobile Banking");
         mb.setFont(new Font("Roboto",Font.PLAIN,20));
         mb.setForeground(Color.WHITE);
-        mb.setBackground(Color.DARK_GRAY);
+        mb.setBackground(new Color(46,51,90));
         mb.setBounds(530,490,180,50);
         add(mb);
 
         ea = new JCheckBox("Email Alerts");
         ea.setFont(new Font("Roboto",Font.PLAIN,20));
         ea.setForeground(Color.WHITE);
-        ea.setBackground(Color.DARK_GRAY);
+        ea.setBackground(new Color(46,51,90));
         ea.setBounds(86,548,150,50);
         add(ea);
 
         ch = new JCheckBox("Cheque Book");
         ch.setFont(new Font("Roboto",Font.PLAIN,20));
         ch.setForeground(Color.WHITE);
-        ch.setBackground(Color.DARK_GRAY);
+        ch.setBackground(new Color(46,51,90));
         ch.setBounds(269,548,150,50);
         add(ch);
 
         es = new JCheckBox("E-statement");
         es.setFont(new Font("Roboto",Font.PLAIN,20));
         es.setForeground(Color.WHITE);
-        es.setBackground(Color.DARK_GRAY);
+        es.setBackground(new Color(46,51,90));
         es.setBounds(530,548,180,50);
         add(es);
 
         declare = new JCheckBox("I here by confirm that above entered details are correct as per my knowledge");
         declare.setFont(new Font("Roboto",Font.PLAIN,14));
         declare.setForeground(Color.WHITE);
-        declare.setBackground(Color.DARK_GRAY);
+        declare.setBackground(new Color(46,51,90));
         declare.setBounds(44,620,550,50);
         add(declare);
 
@@ -173,17 +173,17 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         submit.setForeground(Color.WHITE);
         submit.setBackground(Color.DARK_GRAY);;
         submit.addActionListener(this);
+        submit.setBackground(new Color(92,70,156));
         submit.setBounds(604,680,170,40);
-        submit.setBorder((Border) new SignUpThree.RoundBorder(40));
+
         add(submit);
 
         back = new JButton("Back");
         back.setFont(new Font("Raleway", Font.BOLD,20));
         back.setForeground(Color.WHITE);
-        back.setBackground(Color.DARK_GRAY);;
+        back.setBackground(new Color(29,38,125));
         back.addActionListener(this);
         back.setBounds(44,680,170,40);
-        back.setBorder((Border) new SignUpThree.RoundBorder(40));
         add(back);
     }
 
@@ -249,25 +249,6 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         }
     }
 
-    class RoundBorder implements Border {
-        private int radius;
-
-        public RoundBorder(int radius) {
-            this.radius = radius;
-        }
-
-        public Insets getBorderInsets(Component c) {
-            return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
-        }
-
-        public boolean isBorderOpaque() {
-            return true;
-        }
-
-        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-            g.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
-        }
-    }
     public static void main(String[] args){
        new SignUpThree("");
     }
