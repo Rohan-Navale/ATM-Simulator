@@ -169,7 +169,7 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         add(declare);
 
         submit = new JButton("Submit");
-        submit.setFont(new Font("Roboto",Font.PLAIN,18));
+        submit.setFont(new Font("Raleway", Font.BOLD,20));
         submit.setForeground(Color.WHITE);
         submit.setBackground(Color.DARK_GRAY);;
         submit.addActionListener(this);
@@ -178,7 +178,7 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         add(submit);
 
         back = new JButton("Back");
-        back.setFont(new Font("Roboto",Font.PLAIN,18));
+        back.setFont(new Font("Raleway", Font.BOLD,20));
         back.setForeground(Color.WHITE);
         back.setBackground(Color.DARK_GRAY);;
         back.addActionListener(this);
