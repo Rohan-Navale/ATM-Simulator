@@ -21,13 +21,13 @@ public class Login extends JFrame implements ActionListener {
 //        label.setBounds(70, 10, 100, 100);
 //        add(label);
 
-        JLabel text = new JLabel("CENTRAL BANK ATM Systems"); // JLable is used to get text or image on frame
+        JLabel text = new JLabel("CENTRAL BANK ATM SYSTEMS"); // JLable is used to get text or image on frame
         text.setFont(new Font("Roboto", Font.BOLD,24));
         text.setForeground(Color.WHITE);    //foregroundColor means text color only
-        text.setBounds(219,38, 362, 70);
+        text.setBounds(219,30, 400, 70);
         add(text);
 
-        JLabel text1 = new JLabel("Welcomes You");
+        JLabel text1 = new JLabel("WELCOMES YOU");
         text1.setFont(new Font("Roboto", Font.BOLD,24));
         text1.setForeground(Color.WHITE);
         text1.setBounds(300,65, 362, 70);
@@ -56,35 +56,32 @@ public class Login extends JFrame implements ActionListener {
         add(pinTextField);
 
         login = new JButton("Sign In");
-        login.setBounds(450, 238, 100, 28);
+        login.setBounds(450, 238, 104, 28);
         login.addActionListener(this);
-        login.setFont(new Font("Roboto", Font.PLAIN,14));
+        login.setFont(new Font("Roboto", Font.BOLD,14));
         login.setForeground(Color.white);
-        login.setBorder((Border) new RoundBorder(22));
-        login.setBackground(Color.DARK_GRAY);
+        login.setBackground(new Color(137,58,218));
         add(login);
 
-        clear = new JButton("Back");
-        clear.setBounds(360, 238, 80, 28);
+        clear = new JButton("Clear");
+        clear.setBounds(362, 238, 80, 28);
         clear.setForeground(Color.white);
         clear.addActionListener(this);
-        clear.setBorder((Border) new RoundBorder(22));
-        clear.setFont(new Font("Roboto", Font.PLAIN,14));
-        clear.setBackground(Color.DARK_GRAY);
+        clear.setFont(new Font("Roboto", Font.BOLD,14));
+        clear.setBackground(new Color(92,70,156));
         add(clear);
 
         register = new JButton("Register");
-        register.setBounds(360, 276, 190, 28);
+        register.setBounds(362, 276, 193, 28);
         register.setForeground(Color.white);
         register.addActionListener(this);
-        register.setBorder((Border) new RoundBorder(30));
-        register.setFont(new Font("Roboto", Font.PLAIN,14));
-        register.setBackground(Color.darkGray);
+        register.setFont(new Font("Roboto", Font.BOLD,14));
+        register.setBackground(new Color(29,38,125));
         add(register);
 
 
         setSize(800,400); // Set the Frame Size
-        getContentPane().setBackground(Color.darkGray);
+        getContentPane().setBackground(new Color(12,19,79));
         setVisible(true);
         setLocation(350,200);
     }
@@ -99,21 +96,6 @@ public class Login extends JFrame implements ActionListener {
         }
     }
 
-    class RoundBorder implements Border {
-        private int radius;
-        public RoundBorder(int radius) {
-            this.radius = radius;
-        }
-        public Insets getBorderInsets(Component c) {
-            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-        }
-        public boolean isBorderOpaque() {
-            return true;
-        }
-        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-        }
-    }
     public static void main(String[] args){
         new Login();
     }
