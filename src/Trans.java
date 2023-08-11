@@ -14,49 +14,49 @@ public class Trans extends JFrame {
 
         JButton withdraw = new JButton("Cash Withdrawl");
         withdraw.setBounds(554,169,300,60);
-        withdraw.setBackground(new Color(137,58,218));
+        withdraw.setBackground(new Color(19,105,245));
         withdraw.setFont(new Font("Raleway",Font.BOLD,22));
         withdraw.setForeground(Color.WHITE);
         add(withdraw);
 
         JButton mini = new JButton("Mini Statement");
         mini.setBounds(554,249,300,60);
-        mini.setBackground(new Color(137,58,218));
+        mini.setBackground(new Color(19,105,245));
         mini.setFont(new Font("Raleway",Font.BOLD,22));
         mini.setForeground(Color.WHITE);
         add(mini);
 
         JButton balance = new JButton("Balance Enquiry");
         balance.setBounds(554,329,300,60);
-        balance.setBackground(new Color(137,58,218));
+        balance.setBackground(new Color(19,105,245));
         balance.setFont(new Font("Raleway",Font.BOLD,22));
         balance.setForeground(Color.WHITE);
         add(balance);
 
         JButton exit = new JButton("Exit");
         exit.setBounds(554,409,300,60);
-        exit.setBackground(new Color(137,58,218));
+        exit.setBackground(new Color(19,105,245));
         exit.setFont(new Font("Raleway",Font.BOLD,22));
         exit.setForeground(Color.WHITE);
         add(exit);
 
         JButton dep = new JButton("Deposit");
         dep.setBounds(30,169,300,60);
-        dep.setBackground(new Color(137,58,218));
+        dep.setBackground(new Color(19,105,245));
         dep.setFont(new Font("Raleway",Font.BOLD,22));
         dep.setForeground(Color.WHITE);
         add(dep);
 
         JButton cash = new JButton("Fast Cash");
         cash.setBounds(30,249,300,60);
-        cash.setBackground(new Color(137,58,218));
+        cash.setBackground(new Color(19,105,245));
         cash.setFont(new Font("Raleway",Font.BOLD,22));
         cash.setForeground(Color.WHITE);
         add(cash);
 
         JButton change = new JButton("PIN Change");
         change.setBounds(30,329,300,60);
-        change.setBackground(new Color(137,58,218));
+        change.setBackground(new Color(19,105,245));
         change.setFont(new Font("Raleway",Font.BOLD,22));
         change.setForeground(Color.WHITE);
         add(change);
