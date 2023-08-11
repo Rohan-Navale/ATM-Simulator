@@ -11,10 +11,55 @@ public class Trans extends JFrame {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
-        JPanel rectangle = new JPanel();
-        rectangle.setBounds(10,10,867,483);
-        rectangle.setBackground(new Color(11,58,151));
-        add(rectangle);
+
+        JButton withdraw = new JButton("Cash Withdrawl");
+        withdraw.setBounds(554,169,300,60);
+        withdraw.setBackground(new Color(137,58,218));
+        withdraw.setFont(new Font("Raleway",Font.BOLD,22));
+        withdraw.setForeground(Color.WHITE);
+        add(withdraw);
+
+        JButton mini = new JButton("Mini Statement");
+        mini.setBounds(554,249,300,60);
+        mini.setBackground(new Color(137,58,218));
+        mini.setFont(new Font("Raleway",Font.BOLD,22));
+        mini.setForeground(Color.WHITE);
+        add(mini);
+
+        JButton balance = new JButton("Balance Enquiry");
+        balance.setBounds(554,329,300,60);
+        balance.setBackground(new Color(137,58,218));
+        balance.setFont(new Font("Raleway",Font.BOLD,22));
+        balance.setForeground(Color.WHITE);
+        add(balance);
+
+        JButton exit = new JButton("Exit");
+        exit.setBounds(554,409,300,60);
+        exit.setBackground(new Color(137,58,218));
+        exit.setFont(new Font("Raleway",Font.BOLD,22));
+        exit.setForeground(Color.WHITE);
+        add(exit);
+
+        JButton dep = new JButton("Deposit");
+        dep.setBounds(30,169,300,60);
+        dep.setBackground(new Color(137,58,218));
+        dep.setFont(new Font("Raleway",Font.BOLD,22));
+        dep.setForeground(Color.WHITE);
+        add(dep);
+
+        JButton cash = new JButton("Fast Cash");
+        cash.setBounds(30,249,300,60);
+        cash.setBackground(new Color(137,58,218));
+        cash.setFont(new Font("Raleway",Font.BOLD,22));
+        cash.setForeground(Color.WHITE);
+        add(cash);
+
+        JButton change = new JButton("PIN Change");
+        change.setBounds(30,329,300,60);
+        change.setBackground(new Color(137,58,218));
+        change.setFont(new Font("Raleway",Font.BOLD,22));
+        change.setForeground(Color.WHITE);
+        add(change);
 
         JButton one = new JButton("1");
         one.setForeground(Color.BLACK);
@@ -121,6 +166,10 @@ public class Trans extends JFrame {
         enter.setBounds(540,645,120,60);
         add(enter);
 
+        JPanel rectangle = new JPanel();
+        rectangle.setBounds(10,10,867,483);
+        rectangle.setBackground(new Color(11,58,151));
+        add(rectangle);
 
     }
     public static void main(String[] args){
