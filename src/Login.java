@@ -4,6 +4,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
     JButton login,clear,register; // since it should be accessed by the actionlistner so it is declared globally
@@ -93,6 +94,21 @@ public class Login extends JFrame implements ActionListener {
             setVisible(false);
             new SignUpOne().setVisible(true);
         }else if(ae.getSource() == login){
+            Conn conn = new Conn();
+            String cardNumber = cardTextField.getText();
+            String pinNumber = pinTextField.getText();
+            String query1 = "SELECT * FROM logIn WHERE cardNo = '"+cardNumber+"' AND pinNo = '"+pinNumber+"'";
+            try{
+               ResultSet rs = conn.s.executeQuery(query1);
+               if(rs.next()){
+                   setVisible(false);
+                   new Trans(cardNumber,pinNumber).setVisible(true);
+               } else {
+                   JOptionPane.showMessageDialog(null,"Invalid Card Number or PIN");
+               }
+            } catch (Exception e){
+                System.out.println(e);
+            }
         }
     }
 
