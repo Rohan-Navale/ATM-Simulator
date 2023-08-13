@@ -1,11 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalTime;
 
-public class Trans extends JFrame {
-    Trans(){
+public class Trans extends JFrame implements ActionListener {
+    JButton withdraw,mini,balance,exit,dep,cash,change;
+    JButton one,four,seven,star,two,five,eight,zero,three,six,nine,hashtag,cancel,clear,enter;
+    String pin;
+    Trans(String cardNumber, String pinNumber){
+        pin = pinNumber;
         setLayout(null);
         setLayout(null);
+        setUndecorated(false);
         setVisible(true);
         setSize(900,850);
         setLocation(300,0);
@@ -21,6 +28,11 @@ public class Trans extends JFrame {
         } else if(currtime.isAfter(LocalTime.of(18,0))){
             time="Evening";
         }
+
+//        Conn conn = new Conn();
+//        String query1 = "SELECT * FROM logIn WHERE cardNo = '"+cardNumber+"' AND pinNo = '"+pinNumber+"'";
+//        String query0 = "SELECT name FROM signup s JOIN logIn l WHERE l.cardNo'"+cardNumber+"' = "
+
         JLabel Text1 = new JLabel("Good "+time);
         Text1.setBounds(150,50,190,33);
         Text1.setFont(new Font("Raleway", Font.BOLD,24));
@@ -33,158 +45,180 @@ public class Trans extends JFrame {
         Text2.setForeground(Color.WHITE);
         add(Text2);
 
-        JButton withdraw = new JButton("Cash Withdrawl");
+        withdraw = new JButton("Cash Withdrawl");
         withdraw.setBounds(554,169,300,60);
         withdraw.setBackground(new Color(19,105,245));
         withdraw.setFont(new Font("Raleway",Font.BOLD,22));
         withdraw.setForeground(Color.WHITE);
+        withdraw.addActionListener(this);
         add(withdraw);
 
-        JButton mini = new JButton("Mini Statement");
+        mini = new JButton("Mini Statement");
         mini.setBounds(554,249,300,60);
         mini.setBackground(new Color(19,105,245));
         mini.setFont(new Font("Raleway",Font.BOLD,22));
         mini.setForeground(Color.WHITE);
+        mini.addActionListener(this);
         add(mini);
 
-        JButton balance = new JButton("Balance Enquiry");
+        balance = new JButton("Balance Enquiry");
         balance.setBounds(554,329,300,60);
         balance.setBackground(new Color(19,105,245));
         balance.setFont(new Font("Raleway",Font.BOLD,22));
         balance.setForeground(Color.WHITE);
+        balance.addActionListener(this);
         add(balance);
 
-        JButton exit = new JButton("Exit");
+        exit = new JButton("Exit");
         exit.setBounds(554,409,300,60);
         exit.setBackground(new Color(19,105,245));
         exit.setFont(new Font("Raleway",Font.BOLD,22));
         exit.setForeground(Color.WHITE);
+        exit.addActionListener(this);
         add(exit);
 
-        JButton dep = new JButton("Deposit");
+        dep = new JButton("Deposit");
         dep.setBounds(30,169,300,60);
         dep.setBackground(new Color(19,105,245));
         dep.setFont(new Font("Raleway",Font.BOLD,22));
         dep.setForeground(Color.WHITE);
+        dep.addActionListener(this);
         add(dep);
 
-        JButton cash = new JButton("Fast Cash");
+        cash = new JButton("Fast Cash");
         cash.setBounds(30,249,300,60);
         cash.setBackground(new Color(19,105,245));
         cash.setFont(new Font("Raleway",Font.BOLD,22));
         cash.setForeground(Color.WHITE);
+        cash.addActionListener(this);
         add(cash);
 
-        JButton change = new JButton("PIN Change");
+        change = new JButton("PIN Change");
         change.setBounds(30,329,300,60);
         change.setBackground(new Color(19,105,245));
         change.setFont(new Font("Raleway",Font.BOLD,22));
         change.setForeground(Color.WHITE);
+        change.addActionListener(this);
         add(change);
 
-        JButton one = new JButton("1");
+        one = new JButton("1");
         one.setForeground(Color.BLACK);
         one.setFont(new Font("Raleway", Font.BOLD,20));
         one.setBackground(Color.white);
         one.setBounds(242,505,88,60);
+        one.addActionListener(this);
         add(one);
 
-        JButton four = new JButton("4");
+        four = new JButton("4");
         four.setForeground(Color.BLACK);
         four.setFont(new Font("Raleway", Font.BOLD,20));
         four.setBackground(Color.white);
         four.setBounds(242,575,88,60);
+        four.addActionListener(this);
         add(four);
 
-        JButton seven = new JButton("7");
+        seven = new JButton("7");
         seven.setForeground(Color.BLACK);
         seven.setFont(new Font("Raleway", Font.BOLD,20));
         seven.setBackground(Color.white);
         seven.setBounds(242,645,88,60);
+        seven.addActionListener(this);
         add(seven);
 
-        JButton star = new JButton("*");
+        star = new JButton("*");
         star.setForeground(Color.BLACK);
         star.setFont(new Font("Raleway", Font.BOLD,20));
         star.setBackground(Color.white);
         star.setBounds(242,715,88,60);
+        star.addActionListener(this);
         add(star);
 
-        JButton two = new JButton("2");
+        two = new JButton("2");
         two.setForeground(Color.BLACK);
         two.setFont(new Font("Raleway", Font.BOLD,20));
         two.setBackground(Color.white);
         two.setBounds(340,505,88,60);
+        two.addActionListener(this);
         add(two);
 
-        JButton five = new JButton("5");
+        five = new JButton("5");
         five.setForeground(Color.BLACK);
         five.setFont(new Font("Raleway", Font.BOLD,20));
         five.setBackground(Color.white);
         five.setBounds(340,575,88,60);
+        five.addActionListener(this);
         add(five);
 
-        JButton eight = new JButton("8");
+        eight = new JButton("8");
         eight.setForeground(Color.BLACK);
         eight.setFont(new Font("Raleway", Font.BOLD,20));
         eight.setBackground(Color.white);
         eight.setBounds(340,645,88,60);
+        eight.addActionListener(this);
         add(eight);
 
-        JButton zero = new JButton("0");
+        zero = new JButton("0");
         zero.setForeground(Color.BLACK);
         zero.setFont(new Font("Raleway", Font.BOLD,20));
         zero.setBackground(Color.white);
         zero.setBounds(340,715,88,60);
+        zero.addActionListener(this);
         add(zero);
 
-        JButton three = new JButton("3");
+        three = new JButton("3");
         three.setForeground(Color.BLACK);
         three.setFont(new Font("Raleway", Font.BOLD,20));
         three.setBackground(Color.white);
         three.setBounds(440,505,88,60);
+        three.addActionListener(this);
         add(three);
 
-        JButton six = new JButton("6");
+        six = new JButton("6");
         six.setForeground(Color.BLACK);
         six.setFont(new Font("Raleway", Font.BOLD,20));
         six.setBackground(Color.white);
         six.setBounds(440,575,88,60);
+        six.addActionListener(this);
         add(six);
 
-        JButton nine = new JButton("9");
+        nine = new JButton("9");
         nine.setForeground(Color.BLACK);
         nine.setFont(new Font("Raleway", Font.BOLD,20));
         nine.setBackground(Color.white);
         nine.setBounds(440,645,88,60);
+        nine.addActionListener(this);
         add(nine);
 
-        JButton hashtag = new JButton("#");
+        hashtag = new JButton("#");
         hashtag.setForeground(Color.BLACK);
         hashtag.setFont(new Font("Raleway", Font.BOLD,20));
         hashtag.setBackground(Color.white);
         hashtag.setBounds(440,715,88,60);
+        hashtag.addActionListener(this);
         add(hashtag);
 
-        JButton cancel = new JButton("Cancel");
+        cancel = new JButton("Cancel");
         cancel.setForeground(Color.WHITE);
         cancel.setBackground(new Color(255,87,0));
         cancel.setFont(new Font("Raleway", Font.BOLD,20));
         cancel.setBounds(540,505,120,60);
+        cancel.addActionListener(this);
         add(cancel);
 
-        JButton clear = new JButton("Clear");
+        clear = new JButton("Clear");
         clear.setForeground(Color.WHITE);
         clear.setFont(new Font("Raleway", Font.BOLD,20));
         clear.setBackground(new Color(19,105,245));
         clear.setBounds(540,575,120,60);
+        clear.addActionListener(this);
         add(clear);
 
-        JButton enter = new JButton("Enter");
+        enter = new JButton("Enter");
         enter.setForeground(Color.WHITE);
         enter.setFont(new Font("Raleway", Font.BOLD,20));
         enter.setBackground(new Color(133,193,13));
         enter.setBounds(540,645,120,60);
+        enter.addActionListener(this);
         add(enter);
 
         JPanel rectangle = new JPanel();
@@ -194,7 +228,15 @@ public class Trans extends JFrame {
 
     }
     public static void main(String[] args){
-        new Trans();
+        new Trans("","");
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource()==exit){
+            JOptionPane.showMessageDialog(null,"You have been logged out successfully");
+            System.exit(0);
+        }
     }
 }
 
