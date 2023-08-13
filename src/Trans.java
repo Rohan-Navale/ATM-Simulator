@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalTime;
 
 public class Trans extends JFrame {
     Trans(){
@@ -11,6 +12,26 @@ public class Trans extends JFrame {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
+        String time = new String();
+        LocalTime currtime = LocalTime.now();
+        if(currtime.isBefore(LocalTime.NOON) || currtime.isAfter(LocalTime.of(00,00))){
+            time="Morning";
+        } else if (currtime.equals(LocalTime.NOON)){
+            time="Afternoon";
+        } else if(currtime.isAfter(LocalTime.of(18,0))){
+            time="Evening";
+        }
+        JLabel Text1 = new JLabel("Good "+time);
+        Text1.setBounds(150,50,190,33);
+        Text1.setFont(new Font("Raleway", Font.BOLD,24));
+        Text1.setForeground(Color.WHITE);
+        add(Text1);
+
+        JLabel Text2 = new JLabel("Please select your transaction");
+        Text2.setBounds(250,100,500,33);
+        Text2.setFont(new Font("Raleway", Font.BOLD,28));
+        Text2.setForeground(Color.WHITE);
+        add(Text2);
 
         JButton withdraw = new JButton("Cash Withdrawl");
         withdraw.setBounds(554,169,300,60);
