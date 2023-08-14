@@ -18,6 +18,16 @@ public class SignUpTwo extends JFrame implements ActionListener {
         setTitle("New User Registration - Page 2");
         setLayout(null);/// VVImp otherwise the text will be at the center
 
+        ImageIcon originalIcon = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png"));
+        Image originalImage = originalIcon.getImage();
+        int width = 162;
+        int height = 44;
+        Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel label = new JLabel(scaledIcon);
+        label.setBounds(660, 10, width, height);
+        add(label);
+
         JLabel a = new JLabel("Additional Details:");
         a.setForeground(Color.white);
         a.setFont(new Font("Roboto",Font.BOLD,28));
