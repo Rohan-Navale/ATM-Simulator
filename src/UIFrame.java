@@ -1,7 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class UIFrame extends JFrame {
+public class UIFrame extends JFrame implements ActionListener {
+    JTextField textField;
+    JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag;
     UIFrame(){
         setLayout(null);
         setLayout(null);
@@ -11,93 +15,110 @@ public class UIFrame extends JFrame {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
+        textField = new JTextField();
+        textField.setFont(new Font("Roboto", Font.BOLD,18));
+        textField.setBounds(242, 100, 286, 60); // Adjust the bounds as needed
+        add(textField);
+
         JPanel rectangle = new JPanel();
         rectangle.setBounds(10,10,867,483);
         rectangle.setBackground(new Color(11,58,151));
         add(rectangle);
 
-        JButton one = new JButton("1");
+        one = new JButton("1");
         one.setForeground(Color.BLACK);
         one.setFont(new Font("Raleway", Font.BOLD,20));
         one.setBackground(Color.white);
         one.setBounds(242,505,88,60);
+        one.addActionListener(e -> appendToTextField(one.getText()));
         add(one);
 
-        JButton four = new JButton("4");
+        four = new JButton("4");
         four.setForeground(Color.BLACK);
         four.setFont(new Font("Raleway", Font.BOLD,20));
         four.setBackground(Color.white);
         four.setBounds(242,575,88,60);
+        four.addActionListener(e -> appendToTextField(one.getText()));
         add(four);
 
-        JButton seven = new JButton("7");
+        seven = new JButton("7");
         seven.setForeground(Color.BLACK);
         seven.setFont(new Font("Raleway", Font.BOLD,20));
         seven.setBackground(Color.white);
         seven.setBounds(242,645,88,60);
+        seven.addActionListener(e -> appendToTextField(one.getText()));
         add(seven);
 
-        JButton star = new JButton("*");
+        star = new JButton("*");
         star.setForeground(Color.BLACK);
         star.setFont(new Font("Raleway", Font.BOLD,20));
         star.setBackground(Color.white);
         star.setBounds(242,715,88,60);
+        star.addActionListener(e -> appendToTextField(one.getText()));
         add(star);
 
-        JButton two = new JButton("2");
+        two = new JButton("2");
         two.setForeground(Color.BLACK);
         two.setFont(new Font("Raleway", Font.BOLD,20));
         two.setBackground(Color.white);
         two.setBounds(340,505,88,60);
+        two.addActionListener(e -> appendToTextField(one.getText()));
         add(two);
 
-        JButton five = new JButton("5");
+        five = new JButton("5");
         five.setForeground(Color.BLACK);
         five.setFont(new Font("Raleway", Font.BOLD,20));
         five.setBackground(Color.white);
         five.setBounds(340,575,88,60);
+        five.addActionListener(e -> appendToTextField(one.getText()));
         add(five);
 
-        JButton eight = new JButton("8");
+        eight = new JButton("8");
         eight.setForeground(Color.BLACK);
         eight.setFont(new Font("Raleway", Font.BOLD,20));
         eight.setBackground(Color.white);
         eight.setBounds(340,645,88,60);
+        eight.addActionListener(e -> appendToTextField(one.getText()));
         add(eight);
 
-        JButton zero = new JButton("0");
+        zero = new JButton("0");
         zero.setForeground(Color.BLACK);
         zero.setFont(new Font("Raleway", Font.BOLD,20));
         zero.setBackground(Color.white);
         zero.setBounds(340,715,88,60);
+        zero.addActionListener(e -> appendToTextField(one.getText()));
         add(zero);
 
-        JButton three = new JButton("3");
+        three = new JButton("3");
         three.setForeground(Color.BLACK);
         three.setFont(new Font("Raleway", Font.BOLD,20));
         three.setBackground(Color.white);
         three.setBounds(440,505,88,60);
+        three.addActionListener(e -> appendToTextField(one.getText()));
         add(three);
 
-        JButton six = new JButton("6");
+        six = new JButton("6");
         six.setForeground(Color.BLACK);
         six.setFont(new Font("Raleway", Font.BOLD,20));
         six.setBackground(Color.white);
         six.setBounds(440,575,88,60);
+        six.addActionListener(e -> appendToTextField(one.getText()));
         add(six);
 
-        JButton nine = new JButton("9");
+        nine = new JButton("9");
         nine.setForeground(Color.BLACK);
         nine.setFont(new Font("Raleway", Font.BOLD,20));
         nine.setBackground(Color.white);
         nine.setBounds(440,645,88,60);
+        nine.addActionListener(e -> appendToTextField(one.getText()));
         add(nine);
 
-        JButton hashtag = new JButton("#");
+        hashtag = new JButton("#");
         hashtag.setForeground(Color.BLACK);
         hashtag.setFont(new Font("Raleway", Font.BOLD,20));
         hashtag.setBackground(Color.white);
         hashtag.setBounds(440,715,88,60);
+        hashtag.addActionListener(e -> appendToTextField(one.getText()));
         add(hashtag);
 
         JButton cancel = new JButton("Cancel");
@@ -121,8 +142,17 @@ public class UIFrame extends JFrame {
         enter.setBounds(540,645,120,60);
         add(enter);
 
+        }
+    private void appendToTextField(String text) {
+        textField.setText(textField.getText() + text);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
     public static void main(String[] args){
         new UIFrame();
     }
+
+
 }
