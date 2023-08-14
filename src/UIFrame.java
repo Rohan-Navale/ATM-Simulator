@@ -147,7 +147,7 @@ public class UIFrame extends JFrame implements ActionListener {
         textField.setText(textField.getText() + text);
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent ae) {
 
     }
     public static void main(String[] args){
