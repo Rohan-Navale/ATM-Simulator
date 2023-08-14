@@ -3,9 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static java.lang.System.exit;
+
 public class Deposit extends JFrame implements ActionListener {
     JTextField textField;
-    JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag;
+    JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag, cancel, back,clear, enter,deposit,goback;
     Deposit(){
         setLayout(null);
         setLayout(null);
@@ -15,10 +17,41 @@ public class Deposit extends JFrame implements ActionListener {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
+        JLabel text1 = new JLabel("Enter the amount to deposit");
+        text1.setBounds(210,100,600,50);
+        text1.setForeground(Color.WHITE);
+        text1.setFont(new Font("Roboto", Font.BOLD,35));
+        add(text1);
+
+        JLabel text2 = new JLabel("Rs. ");
+        text2.setBounds(280,191,100,50);
+        text2.setForeground(Color.WHITE);
+        text2.setFont(new Font("Roboto", Font.BOLD,30));
+        add(text2);
+
         textField = new JTextField();
-        textField.setFont(new Font("Roboto", Font.BOLD,18));
-        textField.setBounds(242, 100, 286, 60); // Adjust the bounds as needed
+        textField.setFont(new Font("Roboto", Font.BOLD,30));
+        textField.setForeground(Color.WHITE);
+        //textField.setBorder(null);
+        textField.setBounds(330, 191, 250, 50); // Adjust the bounds as needed
+        textField.setBackground(new Color(11,58,151));
         add(textField);
+
+        deposit = new JButton("Deposit");
+        deposit.setForeground(Color.DARK_GRAY);
+        deposit.setBackground(Color.white);
+        deposit.setFont(new Font("Raleway",Font.BOLD,20));
+        deposit.setBounds(600,353,258,50);
+        deposit.addActionListener(this);
+        add(deposit);
+
+        goback = new JButton("Back");
+        goback.setForeground(Color.DARK_GRAY);
+        goback.setBackground(Color.white);
+        goback.setFont(new Font("Raleway",Font.BOLD,20));
+        goback.setBounds(600,413,258,50);
+        goback.addActionListener(this);
+        add(goback);
 
         JPanel rectangle = new JPanel();
         rectangle.setBounds(10,10,867,483);
@@ -38,7 +71,7 @@ public class Deposit extends JFrame implements ActionListener {
         four.setFont(new Font("Raleway", Font.BOLD,20));
         four.setBackground(Color.white);
         four.setBounds(242,575,88,60);
-        four.addActionListener(e -> appendToTextField(one.getText()));
+        four.addActionListener(e -> appendToTextField(four.getText()));
         add(four);
 
         seven = new JButton("7");
@@ -46,23 +79,23 @@ public class Deposit extends JFrame implements ActionListener {
         seven.setFont(new Font("Raleway", Font.BOLD,20));
         seven.setBackground(Color.white);
         seven.setBounds(242,645,88,60);
-        seven.addActionListener(e -> appendToTextField(one.getText()));
+        seven.addActionListener(e -> appendToTextField(seven.getText()));
         add(seven);
 
-        star = new JButton("*");
-        star.setForeground(Color.BLACK);
-        star.setFont(new Font("Raleway", Font.BOLD,20));
-        star.setBackground(Color.white);
-        star.setBounds(242,715,88,60);
-        star.addActionListener(e -> appendToTextField(one.getText()));
-        add(star);
+//        star = new JButton("*");
+//        star.setForeground(Color.BLACK);
+//        star.setFont(new Font("Raleway", Font.BOLD,20));
+//        star.setBackground(Color.white);
+//        star.setBounds(242,715,88,60);
+//        star.addActionListener(e -> appendToTextField(star.getText()));
+//        add(star);
 
         two = new JButton("2");
         two.setForeground(Color.BLACK);
         two.setFont(new Font("Raleway", Font.BOLD,20));
         two.setBackground(Color.white);
         two.setBounds(340,505,88,60);
-        two.addActionListener(e -> appendToTextField(one.getText()));
+        two.addActionListener(e -> appendToTextField(two.getText()));
         add(two);
 
         five = new JButton("5");
@@ -70,7 +103,7 @@ public class Deposit extends JFrame implements ActionListener {
         five.setFont(new Font("Raleway", Font.BOLD,20));
         five.setBackground(Color.white);
         five.setBounds(340,575,88,60);
-        five.addActionListener(e -> appendToTextField(one.getText()));
+        five.addActionListener(e -> appendToTextField(five.getText()));
         add(five);
 
         eight = new JButton("8");
@@ -78,7 +111,7 @@ public class Deposit extends JFrame implements ActionListener {
         eight.setFont(new Font("Raleway", Font.BOLD,20));
         eight.setBackground(Color.white);
         eight.setBounds(340,645,88,60);
-        eight.addActionListener(e -> appendToTextField(one.getText()));
+        eight.addActionListener(e -> appendToTextField(eight.getText()));
         add(eight);
 
         zero = new JButton("0");
@@ -86,7 +119,7 @@ public class Deposit extends JFrame implements ActionListener {
         zero.setFont(new Font("Raleway", Font.BOLD,20));
         zero.setBackground(Color.white);
         zero.setBounds(340,715,88,60);
-        zero.addActionListener(e -> appendToTextField(one.getText()));
+        zero.addActionListener(e -> appendToTextField(zero.getText()));
         add(zero);
 
         three = new JButton("3");
@@ -94,7 +127,7 @@ public class Deposit extends JFrame implements ActionListener {
         three.setFont(new Font("Raleway", Font.BOLD,20));
         three.setBackground(Color.white);
         three.setBounds(440,505,88,60);
-        three.addActionListener(e -> appendToTextField(one.getText()));
+        three.addActionListener(e -> appendToTextField(three.getText()));
         add(three);
 
         six = new JButton("6");
@@ -102,7 +135,7 @@ public class Deposit extends JFrame implements ActionListener {
         six.setFont(new Font("Raleway", Font.BOLD,20));
         six.setBackground(Color.white);
         six.setBounds(440,575,88,60);
-        six.addActionListener(e -> appendToTextField(one.getText()));
+        six.addActionListener(e -> appendToTextField(six.getText()));
         add(six);
 
         nine = new JButton("9");
@@ -110,37 +143,51 @@ public class Deposit extends JFrame implements ActionListener {
         nine.setFont(new Font("Raleway", Font.BOLD,20));
         nine.setBackground(Color.white);
         nine.setBounds(440,645,88,60);
-        nine.addActionListener(e -> appendToTextField(one.getText()));
+        nine.addActionListener(e -> appendToTextField(nine.getText()));
         add(nine);
 
-        hashtag = new JButton("#");
-        hashtag.setForeground(Color.BLACK);
-        hashtag.setFont(new Font("Raleway", Font.BOLD,20));
-        hashtag.setBackground(Color.white);
-        hashtag.setBounds(440,715,88,60);
-        hashtag.addActionListener(e -> appendToTextField(one.getText()));
-        add(hashtag);
+//        hashtag = new JButton("#");
+//        hashtag.setForeground(Color.BLACK);
+//        hashtag.setFont(new Font("Raleway", Font.BOLD,20));
+//        hashtag.setBackground(Color.white);
+//        hashtag.setBounds(440,715,88,60);
+//        hashtag.addActionListener(e -> appendToTextField(one.getText()));
+//        add(hashtag);
 
-        JButton cancel = new JButton("Cancel");
+        cancel = new JButton("Cancel");
         cancel.setForeground(Color.WHITE);
         cancel.setBackground(new Color(255,87,0));
         cancel.setFont(new Font("Raleway", Font.BOLD,20));
+        cancel.addActionListener(this);
         cancel.setBounds(540,505,120,60);
         add(cancel);
 
-        JButton clear = new JButton("Clear");
+        back = new JButton("Back");
+        back.setForeground(Color.WHITE);
+        back.setFont(new Font("Raleway", Font.BOLD,20));
+        back.setBackground(new Color(19,105,245));
+        back.addActionListener(this);
+        back.setBounds(540,575,120,60);
+        add(back);
+
+        clear = new JButton("Clear");
         clear.setForeground(Color.WHITE);
         clear.setFont(new Font("Raleway", Font.BOLD,20));
-        clear.setBackground(new Color(19,105,245));
-        clear.setBounds(540,575,120,60);
+        clear.setBackground(new Color(151,71,255));
+        clear.addActionListener(this);
+        clear.setBounds(540,645,120,60);
         add(clear);
 
-        JButton enter = new JButton("Enter");
+        enter = new JButton("Enter");
         enter.setForeground(Color.WHITE);
         enter.setFont(new Font("Raleway", Font.BOLD,20));
         enter.setBackground(new Color(133,193,13));
-        enter.setBounds(540,645,120,60);
+        enter.setBounds(540,715,120,60);
+        enter.addActionListener(this);
         add(enter);
+
+
+
 
     }
 
@@ -152,7 +199,17 @@ public class Deposit extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource()==clear){
+            textField.setText("");
+        }
+        if (ae.getSource()==cancel){
+            JOptionPane.showMessageDialog(null,"Your Transaction was canceled");
+            System.exit(1);
+        }
+        if (ae.getSource()==back){
+            setVisible(false);
+            new Trans("","").setVisible(true);
+        }
     }
 }
