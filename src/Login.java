@@ -14,24 +14,44 @@ public class Login extends JFrame implements ActionListener {
 
         setTitle("Automated Teller Machine");
         setLayout(null); // to use customized layout
-
-//        ImageIcon I1 = new ImageIcon(ClassLoader.getSystemResource("icons/bank.png")); // Fetch th image frm address
-//        Image I2 = I1.getImage().getScaledInstance(100,100, Image.SCALE_DEFAULT); // Sets images in pre sized box
+//
+//        ImageIcon I1 = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png")); // Fetch th image frm address
+//        Image I2 = I1.getImage().getScaledInstance(546,146, Image.SCALE_DEFAULT); // Sets images in pre sized box
 //        ImageIcon I3 = new ImageIcon(I2); //Conversion of Image to icon since JLable is not compatible with Image
 //        JLabel label = new JLabel(I3);   // used to get image on the frame
 //        label.setBounds(70, 10, 100, 100);
 //        add(label);
 
-        JLabel text = new JLabel("CENTRAL BANK ATM SYSTEMS"); // JLable is used to get text or image on frame
+        ImageIcon originalIcon = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png")); // Load the image
+        Image originalImage = originalIcon.getImage(); // Get the original image
+// Scale the original image to your preferred size
+        int width = 162; // Preferred width
+        int height = 44; // Preferred height
+        Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+// Create a new ImageIcon from the scaled image
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+// Create a JLabel and set the scaled ImageIcon to it
+        JLabel label = new JLabel(scaledIcon);
+        label.setBounds(23, 21, width, height); // Set the position and size of the JLabel
+        add(label); // Add the JLabel to your frame
+
+
+        JLabel text = new JLabel("EASE BANK "); // JLable is used to get text or image on frame
         text.setFont(new Font("Roboto", Font.BOLD,24));
-        text.setForeground(Color.WHITE);    //foregroundColor means text color only
+        text.setForeground(new Color(244,121,32));    //foregroundColor means text color only
         text.setBounds(219,30, 400, 70);
         add(text);
+
+        JLabel text2 = new JLabel("ATM SYSTEMS"); // JLable is used to get text or image on frame
+        text2.setFont(new Font("Roboto", Font.BOLD,24));
+        text2.setForeground(Color.WHITE);    //foregroundColor means text color only
+        text2.setBounds(370,30, 400, 70);
+        add(text2);
 
         JLabel text1 = new JLabel("WELCOMES YOU");
         text1.setFont(new Font("Roboto", Font.BOLD,24));
         text1.setForeground(Color.WHITE);
-        text1.setBounds(300,65, 362, 70);
+        text1.setBounds(280,65, 362, 70);
         add(text1);
 
         JLabel cardno = new JLabel("Card Number :");
