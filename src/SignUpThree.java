@@ -24,6 +24,16 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         getContentPane().setBackground(new Color(46,51,90));
         setLayout(null);
 
+        ImageIcon originalIcon = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png"));
+        Image originalImage = originalIcon.getImage();
+        int width = 162;
+        int height = 44;
+        Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel label = new JLabel(scaledIcon);
+        label.setBounds(660, 10, width, height);
+        add(label);
+
         JLabel accountDetails = new JLabel("Account Details:");
         accountDetails.setBounds(44,48,300,35);
         accountDetails.setForeground(Color.white);
