@@ -19,6 +19,16 @@ public class Trans extends JFrame implements ActionListener {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
+        ImageIcon originalIcon = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png"));
+        Image originalImage = originalIcon.getImage();
+        int width = 162;
+        int height = 44;
+        Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel label = new JLabel(scaledIcon);
+        label.setBounds(352, 12, width, height);
+        add(label);
+
         String time = null;
         LocalTime currtime = LocalTime.now();
 
@@ -36,7 +46,7 @@ public class Trans extends JFrame implements ActionListener {
 //        String query0 = "SELECT name FROM signup s JOIN logIn l WHERE l.cardNo'"+cardNumber+"' = "
 
         JLabel Text1 = new JLabel("Good "+time);
-        Text1.setBounds(150,50,190,33);
+        Text1.setBounds(150,65,190,33);
         Text1.setFont(new Font("Raleway", Font.BOLD,24));
         Text1.setForeground(Color.WHITE);
         add(Text1);
