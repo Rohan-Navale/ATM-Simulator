@@ -19,15 +19,17 @@ public class Trans extends JFrame implements ActionListener {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
-        String time = new String();
+        String time = null;
         LocalTime currtime = LocalTime.now();
-        if(currtime.isBefore(LocalTime.NOON) || currtime.isAfter(LocalTime.of(00,00))){
-            time="Morning";
-        } else if (currtime.equals(LocalTime.NOON)){
-            time="Afternoon";
-        } else if(currtime.isAfter(LocalTime.of(18,0))){
-            time="Evening";
+
+        if (currtime.isAfter(LocalTime.of(00, 00)) && currtime.isBefore(LocalTime.of(12, 00))) {
+            time = "Morning";
+        } else if (currtime.isAfter(LocalTime.of(12, 00)) && currtime.isBefore(LocalTime.of(16, 00))) {
+            time = "Afternoon";
+        } else if (currtime.isAfter(LocalTime.of(16, 00)) && currtime.isBefore(LocalTime.of(23, 59))) {
+            time = "Evening";
         }
+
 
 //        Conn conn = new Conn();
 //        String query1 = "SELECT * FROM logIn WHERE cardNo = '"+cardNumber+"' AND pinNo = '"+pinNumber+"'";
