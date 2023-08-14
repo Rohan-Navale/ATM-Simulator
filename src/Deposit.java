@@ -17,6 +17,16 @@ public class Deposit extends JFrame implements ActionListener {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
+        ImageIcon originalIcon = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png"));
+        Image originalImage = originalIcon.getImage();
+        int width = 200;
+        int height = 50;
+        Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel label = new JLabel(scaledIcon);
+        label.setBounds(20, 20, width, height);
+        add(label);
+
         JLabel text1 = new JLabel("Enter the amount to deposit");
         text1.setBounds(210,100,600,50);
         text1.setForeground(Color.WHITE);
