@@ -2,13 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import static java.lang.System.exit;
 
 public class Deposit extends JFrame implements ActionListener {
     JTextField textField;
     JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag, cancel, back,clear, enter,deposit,goback;
-    Deposit(){
+    String PIN;
+    Deposit(String pinNumber){
+
+        PIN=pinNumber;
+
         setLayout(null);
         setLayout(null);
         setVisible(true);
@@ -205,7 +210,7 @@ public class Deposit extends JFrame implements ActionListener {
         textField.setText(textField.getText() + text);
     }
     public static void main(String[] args){
-        new Deposit();
+        new Deposit("");
     }
 
     @Override
@@ -217,9 +222,27 @@ public class Deposit extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null,"Your Transaction was canceled");
             System.exit(1);
         }
-        if (ae.getSource()==back){
+        if (ae.getSource()==back || ae.getSource()==goback){
             setVisible(false);
             new Trans("","").setVisible(true);
+        }
+        if(ae.getSource()==deposit){
+            String amount = textField.getText();
+            Date date = new Date();
+            if(amount.equals("")){
+                JOptionPane.showMessageDialog(null,"Please enter the amount");
+            } else {
+                Conn conn = new Conn();
+                String query = "insert into  bank values('"+PIN+"', '" + date +"','Deposit','"+amount+"')";
+                try{
+                    conn.s.executeUpdate(query);
+                    JOptionPane.showMessageDialog(null,"Amount "+ amount+" was successfully added");
+                    System.exit(1);
+                } catch (Exception e){
+                    System.out.println(e);
+                }
+
+            }
         }
     }
 }
