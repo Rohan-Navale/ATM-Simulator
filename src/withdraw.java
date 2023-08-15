@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-import static java.lang.System.exit;
-
 public class withdraw extends JFrame implements ActionListener {
     JTextField textField;
     JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag, cancel, back,clear, enter,withdrawl,goback;
