@@ -222,7 +222,7 @@ public class withdraw extends JFrame implements ActionListener {
         }
         if (ae.getSource()==back || ae.getSource()==goback){
             setVisible(false);
-            new Trans("","").setVisible(true);
+            new Trans("").setVisible(true);
         }
         if(ae.getSource()==withdrawl|| ae.getSource()==enter){
             String amount = textField.getText();
