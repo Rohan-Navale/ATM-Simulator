@@ -29,35 +29,21 @@ public class FastCash extends JFrame implements ActionListener {
         label.setBounds(352, 12, width, height);
         add(label);
 
-        String time = null;
-        LocalTime currtime = LocalTime.now();
 
-        if (currtime.isAfter(LocalTime.of(00, 00)) && currtime.isBefore(LocalTime.of(12, 00))) {
-            time = "Morning";
-        } else if (currtime.isAfter(LocalTime.of(12, 00)) && currtime.isBefore(LocalTime.of(16, 00))) {
-            time = "Afternoon";
-        } else if (currtime.isAfter(LocalTime.of(16, 00)) && currtime.isBefore(LocalTime.of(23, 59))) {
-            time = "Evening";
-        }
 
 
 //        Conn conn = new Conn();
 //        String query1 = "SELECT * FROM logIn WHERE cardNo = '"+cardNumber+"' AND pinNo = '"+pinNumber+"'";
 //        String query0 = "SELECT name FROM signup s JOIN logIn l WHERE l.cardNo'"+cardNumber+"' = "
 
-        JLabel Text1 = new JLabel("Good "+time);
-        Text1.setBounds(150,65,190,33);
-        Text1.setFont(new Font("Raleway", Font.BOLD,24));
-        Text1.setForeground(Color.WHITE);
-        add(Text1);
 
-        JLabel Text2 = new JLabel("Please select your transaction");
-        Text2.setBounds(250,100,500,33);
+        JLabel Text2 = new JLabel("Select Withdrawal Amount");
+        Text2.setBounds(280,100,500,33);
         Text2.setFont(new Font("Raleway", Font.BOLD,28));
         Text2.setForeground(Color.WHITE);
         add(Text2);
 
-        withdraw = new JButton("Cash Withdrawl");
+        withdraw = new JButton("Rs. 100");
         withdraw.setBounds(554,169,300,60);
         withdraw.setBackground(new Color(19,105,245));
         withdraw.setFont(new Font("Raleway",Font.BOLD,22));
@@ -65,7 +51,7 @@ public class FastCash extends JFrame implements ActionListener {
         withdraw.addActionListener(this);
         add(withdraw);
 
-        mini = new JButton("Mini Statement");
+        mini = new JButton("Rs. 500");
         mini.setBounds(554,249,300,60);
         mini.setBackground(new Color(19,105,245));
         mini.setFont(new Font("Raleway",Font.BOLD,22));
@@ -73,7 +59,7 @@ public class FastCash extends JFrame implements ActionListener {
         mini.addActionListener(this);
         add(mini);
 
-        balance = new JButton("Balance Enquiry");
+        balance = new JButton("Rs. 1000");
         balance.setBounds(554,329,300,60);
         balance.setBackground(new Color(19,105,245));
         balance.setFont(new Font("Raleway",Font.BOLD,22));
@@ -81,7 +67,7 @@ public class FastCash extends JFrame implements ActionListener {
         balance.addActionListener(this);
         add(balance);
 
-        exit = new JButton("Exit");
+        exit = new JButton("Back");
         exit.setBounds(554,409,300,60);
         exit.setBackground(new Color(19,105,245));
         exit.setFont(new Font("Raleway",Font.BOLD,22));
@@ -89,7 +75,7 @@ public class FastCash extends JFrame implements ActionListener {
         exit.addActionListener(this);
         add(exit);
 
-        dep = new JButton("Deposit");
+        dep = new JButton("2000");
         dep.setBounds(30,169,300,60);
         dep.setBackground(new Color(19,105,245));
         dep.setFont(new Font("Raleway",Font.BOLD,22));
@@ -97,7 +83,7 @@ public class FastCash extends JFrame implements ActionListener {
         dep.addActionListener(this);
         add(dep);
 
-        cash = new JButton("Fast Cash");
+        cash = new JButton("5000");
         cash.setBounds(30,249,300,60);
         cash.setBackground(new Color(19,105,245));
         cash.setFont(new Font("Raleway",Font.BOLD,22));
@@ -105,7 +91,7 @@ public class FastCash extends JFrame implements ActionListener {
         cash.addActionListener(this);
         add(cash);
 
-        change = new JButton("PIN Change");
+        change = new JButton("10000");
         change.setBounds(30,329,300,60);
         change.setBackground(new Color(19,105,245));
         change.setFont(new Font("Raleway",Font.BOLD,22));
@@ -253,7 +239,11 @@ public class FastCash extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==exit || ae.getSource()==cancel){
+        if(ae.getSource()==exit){
+            setVisible(false);
+            new Trans(pin).setVisible(true);
+        }
+        if(ae.getSource()==cancel){
             JOptionPane.showMessageDialog(null,"You have been logged out successfully");
             System.exit(0);
         }
