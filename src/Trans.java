@@ -8,7 +8,7 @@ public class Trans extends JFrame implements ActionListener {
     JButton withdraw,mini,balance,exit,dep,cash,change;
     JButton one,four,seven,star,two,five,eight,zero,three,six,nine,hashtag,cancel,clear,enter,back;
     String pin;
-    Trans(String cardNumber, String pinNumber){
+    Trans(String pinNumber){
         pin = pinNumber;
         setLayout(null);
         setLayout(null);
@@ -248,7 +248,7 @@ public class Trans extends JFrame implements ActionListener {
 
     }
     public static void main(String[] args){
-        new Trans("","");
+        new Trans("");
     }
 
     @Override
@@ -264,6 +264,10 @@ public class Trans extends JFrame implements ActionListener {
         if(ae.getSource()==withdraw){
             setVisible(false);
             new withdraw(pin).setVisible(true);
+        }
+        if(ae.getSource()==cash){
+            setVisible(false);
+            new FastCash(pin).setVisible(true);
         }
     }
 }
