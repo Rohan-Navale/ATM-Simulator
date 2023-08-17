@@ -137,14 +137,6 @@ public class Trans extends JFrame implements ActionListener {
         seven.addActionListener(this);
         add(seven);
 
-//        star = new JButton("*");
-//        star.setForeground(Color.BLACK);
-//        star.setFont(new Font("Raleway", Font.BOLD,20));
-//        star.setBackground(Color.white);
-//        star.setBounds(242,715,88,60);
-//        star.addActionListener(this);
-//        add(star);
-
         two = new JButton("2");
         two.setForeground(Color.BLACK);
         two.setFont(new Font("Raleway", Font.BOLD,20));
@@ -201,14 +193,6 @@ public class Trans extends JFrame implements ActionListener {
         nine.addActionListener(this);
         add(nine);
 
-//        hashtag = new JButton("#");
-//        hashtag.setForeground(Color.BLACK);
-//        hashtag.setFont(new Font("Raleway", Font.BOLD,20));
-//        hashtag.setBackground(Color.white);
-//        hashtag.setBounds(440,715,88,60);
-//        hashtag.addActionListener(this);
-//        add(hashtag);
-
         cancel = new JButton("Cancel");
         cancel.setForeground(Color.WHITE);
         cancel.setBackground(new Color(255,87,0));
@@ -216,14 +200,6 @@ public class Trans extends JFrame implements ActionListener {
         cancel.addActionListener(this);
         cancel.setBounds(540,505,120,60);
         add(cancel);
-
-//        back = new JButton("Back");
-//        back.setForeground(Color.WHITE);
-//        back.setFont(new Font("Raleway", Font.BOLD,20));
-//        back.setBackground(new Color(19,105,245));
-//        back.addActionListener(this);
-//        back.setBounds(540,575,120,60);
-//        add(back);
 
         clear = new JButton("Clear");
         clear.setForeground(Color.WHITE);
