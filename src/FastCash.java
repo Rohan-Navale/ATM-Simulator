@@ -1,7 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalTime;
 
 public class FastCash extends JFrame implements ActionListener {
@@ -29,21 +33,13 @@ public class FastCash extends JFrame implements ActionListener {
         label.setBounds(352, 12, width, height);
         add(label);
 
-
-
-
-//        Conn conn = new Conn();
-//        String query1 = "SELECT * FROM logIn WHERE cardNo = '"+cardNumber+"' AND pinNo = '"+pinNumber+"'";
-//        String query0 = "SELECT name FROM signup s JOIN logIn l WHERE l.cardNo'"+cardNumber+"' = "
-
-
         JLabel Text2 = new JLabel("Select Withdrawal Amount");
         Text2.setBounds(280,100,500,33);
         Text2.setFont(new Font("Raleway", Font.BOLD,28));
         Text2.setForeground(Color.WHITE);
         add(Text2);
 
-        withdraw = new JButton("Rs. 100");
+        withdraw = new JButton("100");
         withdraw.setBounds(554,169,300,60);
         withdraw.setBackground(new Color(19,105,245));
         withdraw.setFont(new Font("Raleway",Font.BOLD,22));
@@ -51,7 +47,7 @@ public class FastCash extends JFrame implements ActionListener {
         withdraw.addActionListener(this);
         add(withdraw);
 
-        mini = new JButton("Rs. 500");
+        mini = new JButton("500");
         mini.setBounds(554,249,300,60);
         mini.setBackground(new Color(19,105,245));
         mini.setFont(new Font("Raleway",Font.BOLD,22));
@@ -59,7 +55,7 @@ public class FastCash extends JFrame implements ActionListener {
         mini.addActionListener(this);
         add(mini);
 
-        balance = new JButton("Rs. 1000");
+        balance = new JButton("1000");
         balance.setBounds(554,329,300,60);
         balance.setBackground(new Color(19,105,245));
         balance.setFont(new Font("Raleway",Font.BOLD,22));
@@ -123,14 +119,6 @@ public class FastCash extends JFrame implements ActionListener {
         seven.addActionListener(this);
         add(seven);
 
-//        star = new JButton("*");
-//        star.setForeground(Color.BLACK);
-//        star.setFont(new Font("Raleway", Font.BOLD,20));
-//        star.setBackground(Color.white);
-//        star.setBounds(242,715,88,60);
-//        star.addActionListener(this);
-//        add(star);
-
         two = new JButton("2");
         two.setForeground(Color.BLACK);
         two.setFont(new Font("Raleway", Font.BOLD,20));
@@ -187,14 +175,6 @@ public class FastCash extends JFrame implements ActionListener {
         nine.addActionListener(this);
         add(nine);
 
-//        hashtag = new JButton("#");
-//        hashtag.setForeground(Color.BLACK);
-//        hashtag.setFont(new Font("Raleway", Font.BOLD,20));
-//        hashtag.setBackground(Color.white);
-//        hashtag.setBounds(440,715,88,60);
-//        hashtag.addActionListener(this);
-//        add(hashtag);
-
         cancel = new JButton("Cancel");
         cancel.setForeground(Color.WHITE);
         cancel.setBackground(new Color(255,87,0));
@@ -202,14 +182,6 @@ public class FastCash extends JFrame implements ActionListener {
         cancel.addActionListener(this);
         cancel.setBounds(540,505,120,60);
         add(cancel);
-
-//        back = new JButton("Back");
-//        back.setForeground(Color.WHITE);
-//        back.setFont(new Font("Raleway", Font.BOLD,20));
-//        back.setBackground(new Color(19,105,245));
-//        back.addActionListener(this);
-//        back.setBounds(540,575,120,60);
-//        add(back);
 
         clear = new JButton("Clear");
         clear.setForeground(Color.WHITE);
@@ -247,13 +219,36 @@ public class FastCash extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null,"You have been logged out successfully");
             System.exit(0);
         }
-        if(ae.getSource()==dep){
+        String buttonText = ((JButton)ae.getSource()).getText();
+        String amount = buttonText.replaceAll("\\D", ""); // Remove all non-digit character
+        Conn conn =new Conn();
+        try{
+            ResultSet rs = conn.s.executeQuery("SELECT * FROM bank WHERE pin='"+pin+"'");
+            int balance = 0 ;
+            while (rs.next()){
+                if(rs.getString("type").equals("Deposit")){
+                    balance += Integer.parseInt(rs.getString("amount"));
+                } else {
+                    balance -= Integer.parseInt(rs.getString("amount"));
+                }
+            }
+
+            if (balance < Integer.parseInt(amount)) {
+                JOptionPane.showMessageDialog(null,"Insufficient Balance");
+                setVisible(false);
+                new Trans(pin).setVisible(true);
+                return;
+            }
+
+            Date date = new Date();
+            String query="insert into bank values('"+pin+"','"+date+"','Withdrawl','"+amount+"')";
+            conn.s.executeUpdate(query);
+            JOptionPane.showMessageDialog(null,"Rs."+amount+" Debited Successfully");
+
             setVisible(false);
-            new Deposit(pin).setVisible(true);
-        }
-        if(ae.getSource()==withdraw){
-            setVisible(false);
-            new withdraw(pin).setVisible(true);
+            new Trans(pin).setVisible(true);
+        }  catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }
