@@ -118,6 +118,7 @@ public class Login extends JFrame implements ActionListener {
             String cardNumber = cardTextField.getText();
             String pinNumber = pinTextField.getText();
             String query1 = "SELECT * FROM logIn WHERE cardNo = '"+cardNumber+"' AND pinNo = '"+pinNumber+"'";
+
             try{
                ResultSet rs = conn.s.executeQuery(query1);
                if(rs.next()){
