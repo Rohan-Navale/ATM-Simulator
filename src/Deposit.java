@@ -237,7 +237,8 @@ public class Deposit extends JFrame implements ActionListener {
                 try{
                     conn.s.executeUpdate(query);
                     JOptionPane.showMessageDialog(null,"Amount "+ amount+" was successfully added");
-                    System.exit(1);
+                    setVisible(false);
+                    new Trans(PIN).setVisible(true);
                 } catch (Exception e){
                     System.out.println(e);
                 }
