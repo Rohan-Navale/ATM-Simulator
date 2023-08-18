@@ -21,6 +21,17 @@ public class PinChange extends JFrame implements ActionListener {
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
 
+        ImageIcon originalIcon = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png"));
+        Image originalImage = originalIcon.getImage();
+        int width = 200;
+        int height = 70;
+        Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel label = new JLabel(scaledIcon);
+        label.setBounds(352, 30, width, height);
+        add(label);
+
+
         JLabel text1 = new JLabel("CHANGE YOUR PIN");
         text1.setBounds(300,130,600,50);
         text1.setForeground(Color.WHITE);
@@ -33,7 +44,7 @@ public class PinChange extends JFrame implements ActionListener {
         text2.setFont(new Font("Roboto", Font.BOLD,26));
         add(text2);
 
-        pinText = new JTextField();
+        pinText = new JPasswordField();
         pinText.setFont(new Font("Roboto", Font.BOLD,18));
         pinText.setBounds(490, 214, 150, 40); // Adjust the bounds as needed
         pinText.addFocusListener(new FocusAdapter() {
@@ -50,7 +61,7 @@ public class PinChange extends JFrame implements ActionListener {
         text3.setFont(new Font("Roboto", Font.BOLD,26));
         add(text3);
 
-        repinText = new JTextField();
+        repinText = new JPasswordField();
         repinText.setFont(new Font("Roboto", Font.BOLD,18));
         repinText.setBounds(490, 268, 150, 40); // Adjust the bounds as needed
         repinText.addFocusListener(new FocusAdapter() {
