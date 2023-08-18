@@ -9,7 +9,10 @@ public class PinChange extends JFrame implements ActionListener {
     JTextField pinText, repinText;
     JButton one,two,three,four,five,six,seven,eight,nine,zero,cancel,clear,enter,deposit,goback;
     boolean isPinTextActive = true;
+    String PIN;
     PinChange(String pin){
+        PIN=pin;
+
         setLayout(null);
         setLayout(null);
         setVisible(true);
@@ -17,10 +20,6 @@ public class PinChange extends JFrame implements ActionListener {
         setLocation(300,0);
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
-
-
-
-
 
         JLabel text1 = new JLabel("CHANGE YOUR PIN");
         text1.setBounds(300,130,600,50);
@@ -61,8 +60,6 @@ public class PinChange extends JFrame implements ActionListener {
             }
         });
         add(repinText);
-
-
 
         deposit = new JButton("Change");
         deposit.setForeground(Color.DARK_GRAY);
@@ -201,10 +198,31 @@ public class PinChange extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource()==deposit) {
+            try {
+                String npin = pinText.getText();
+                String rpin = repinText.getText();
+                if (npin.compareTo(rpin) != 0) {
+                    JOptionPane.showMessageDialog(null, "Re-entered PIN does not match");
+                    return;
+                }
+                if (npin.equals("") || rpin.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill both the fields");
+                    return;
+                }
 
+//                Conn conn = new Conn();
+//                String query1  =
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        if(ae.getSource()==goback){
+            setVisible(false);
+            new Trans(PIN).setVisible(true);
+        }
     }
-
-
 
     public static void main(String[] args){
         new PinChange("");
