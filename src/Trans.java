@@ -249,7 +249,12 @@ public class Trans extends JFrame implements ActionListener {
             setVisible(false);
             new PinChange(pin).setVisible(true);
         }
+        if (ae.getSource()==balance){
+            setVisible(false);
+            new BalanceEnquiry(pin).setVisible(true);
+        }
     }
+
 }
 
 
