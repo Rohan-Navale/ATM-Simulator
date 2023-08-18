@@ -245,6 +245,10 @@ public class Trans extends JFrame implements ActionListener {
             setVisible(false);
             new FastCash(pin).setVisible(true);
         }
+        if(ae.getSource()==change){
+            setVisible(false);
+            new PinChange(pin).setVisible(true);
+        }
     }
 }
 
