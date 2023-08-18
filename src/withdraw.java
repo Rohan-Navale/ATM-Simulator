@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.util.Date;
 
 public class withdraw extends JFrame implements ActionListener {
@@ -231,11 +232,28 @@ public class withdraw extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Please enter the amount");
             } else {
                 Conn conn = new Conn();
-                String query = "insert into  bank values('"+PIN+"', '" + date +"','Withdraw','"+amount+"')";
+
                 try{
-                    conn.s.executeUpdate(query);
-                    JOptionPane.showMessageDialog(null,"Amount "+ amount+" was successfully withdrawn");
-                    System.exit(1);
+                    ResultSet rs = conn.s.executeQuery("SELECT * FROM bank WHERE pin='"+PIN+"'");
+                    int balance = 0 ;
+                    while (rs.next()){
+                        if(rs.getString("type").equals("Deposit")){
+                            balance += Integer.parseInt(rs.getString("amount"));
+                        } else {
+                            balance -= Integer.parseInt(rs.getString("amount"));
+                        }
+                    }
+                    if (balance < Integer.parseInt(amount)) {
+                        JOptionPane.showMessageDialog(null,"Insufficient Balance");
+                        setVisible(false);
+                        new Trans(PIN).setVisible(true);
+                        return;
+                    } else {
+                        String query = "insert into  bank values('"+PIN+"', '" + date +"','Withdraw','"+amount+"')";
+                        conn.s.executeUpdate(query);
+                        JOptionPane.showMessageDialog(null, "Amount " + amount + " was successfully withdrawn");
+                    }
+
                 } catch (Exception e){
                     System.out.println(e);
                 }
@@ -244,3 +262,9 @@ public class withdraw extends JFrame implements ActionListener {
         }
     }
 }
+
+
+
+
+
+
