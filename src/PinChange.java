@@ -2,10 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class PinChange extends JFrame implements ActionListener {
     JTextField pinText, repinText;
     JButton one,two,three,four,five,six,seven,eight,nine,zero,cancel,clear,enter,deposit,goback;
+    boolean isPinTextActive = true;
     PinChange(String pin){
         setLayout(null);
         setLayout(null);
@@ -14,6 +17,10 @@ public class PinChange extends JFrame implements ActionListener {
         setLocation(300,0);
         setTitle("ATM Interface");
         getContentPane().setBackground(new Color(12,19,79));
+
+
+
+
 
         JLabel text1 = new JLabel("CHANGE YOUR PIN");
         text1.setBounds(300,130,600,50);
@@ -30,6 +37,12 @@ public class PinChange extends JFrame implements ActionListener {
         pinText = new JTextField();
         pinText.setFont(new Font("Roboto", Font.BOLD,18));
         pinText.setBounds(490, 214, 150, 40); // Adjust the bounds as needed
+        pinText.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                isPinTextActive = true;
+            }
+        });
         add(pinText);
 
         JLabel text3 = new JLabel("Re-enter your New PIN:");
@@ -41,7 +54,15 @@ public class PinChange extends JFrame implements ActionListener {
         repinText = new JTextField();
         repinText.setFont(new Font("Roboto", Font.BOLD,18));
         repinText.setBounds(490, 268, 150, 40); // Adjust the bounds as needed
+        repinText.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                isPinTextActive = false;
+            }
+        });
         add(repinText);
+
+
 
         deposit = new JButton("Change");
         deposit.setForeground(Color.DARK_GRAY);
@@ -69,8 +90,7 @@ public class PinChange extends JFrame implements ActionListener {
         one.setFont(new Font("Raleway", Font.BOLD,20));
         one.setBackground(Color.white);
         one.setBounds(242,505,88,60);
-        one.addActionListener(e -> appendToTextField(one.getText(), pinText));
-        one.addActionListener(e -> appendToTextField(one.getText(), repinText));
+        one.addActionListener(e -> appendToActiveTextField(one.getText()));
 
         add(one);
 
@@ -79,8 +99,7 @@ public class PinChange extends JFrame implements ActionListener {
         four.setFont(new Font("Raleway", Font.BOLD,20));
         four.setBackground(Color.white);
         four.setBounds(242,575,88,60);
-        four.addActionListener(e -> appendToTextField(four.getText(), pinText));
-        four.addActionListener(e -> appendToTextField(four.getText(), repinText));
+        four.addActionListener(e -> appendToActiveTextField(four.getText()));
         add(four);
 
         seven = new JButton("7");
@@ -88,8 +107,7 @@ public class PinChange extends JFrame implements ActionListener {
         seven.setFont(new Font("Raleway", Font.BOLD,20));
         seven.setBackground(Color.white);
         seven.setBounds(242,645,88,60);
-        seven.addActionListener(e -> appendToTextField(seven.getText(), pinText));
-        seven.addActionListener(e -> appendToTextField(seven.getText(), repinText));
+        seven.addActionListener(e -> appendToActiveTextField(seven.getText()));
         add(seven);
 
         two = new JButton("2");
@@ -97,8 +115,7 @@ public class PinChange extends JFrame implements ActionListener {
         two.setFont(new Font("Raleway", Font.BOLD,20));
         two.setBackground(Color.white);
         two.setBounds(340,505,88,60);
-        two.addActionListener(e -> appendToTextField(two.getText(), pinText));
-        two.addActionListener(e -> appendToTextField(two.getText(), repinText));
+        two.addActionListener(e -> appendToActiveTextField(two.getText()));
         add(two);
 
         five = new JButton("5");
@@ -106,8 +123,7 @@ public class PinChange extends JFrame implements ActionListener {
         five.setFont(new Font("Raleway", Font.BOLD,20));
         five.setBackground(Color.white);
         five.setBounds(340,575,88,60);
-        five.addActionListener(e -> appendToTextField(five.getText(), pinText));
-        five.addActionListener(e -> appendToTextField(five.getText(), repinText));
+        five.addActionListener(e -> appendToActiveTextField(five.getText()));
         add(five);
 
         eight = new JButton("8");
@@ -115,8 +131,7 @@ public class PinChange extends JFrame implements ActionListener {
         eight.setFont(new Font("Raleway", Font.BOLD,20));
         eight.setBackground(Color.white);
         eight.setBounds(340,645,88,60);
-        eight.addActionListener(e -> appendToTextField(eight.getText(), pinText));
-        eight.addActionListener(e -> appendToTextField(eight.getText(), repinText));
+        eight.addActionListener(e -> appendToActiveTextField(eight.getText()));
         add(eight);
 
         zero = new JButton("0");
@@ -124,8 +139,7 @@ public class PinChange extends JFrame implements ActionListener {
         zero.setFont(new Font("Raleway", Font.BOLD,20));
         zero.setBackground(Color.white);
         zero.setBounds(340,715,88,60);
-        zero.addActionListener(e -> appendToTextField(zero.getText(), pinText));
-        zero.addActionListener(e -> appendToTextField(zero.getText(), repinText));
+        zero.addActionListener(e -> appendToActiveTextField(zero.getText()));
         add(zero);
 
         three = new JButton("3");
@@ -133,8 +147,7 @@ public class PinChange extends JFrame implements ActionListener {
         three.setFont(new Font("Raleway", Font.BOLD,20));
         three.setBackground(Color.white);
         three.setBounds(440,505,88,60);
-        three.addActionListener(e -> appendToTextField(three.getText(), pinText));
-        three.addActionListener(e -> appendToTextField(three.getText(), repinText));
+        three.addActionListener(e -> appendToActiveTextField(three.getText()));
         add(three);
 
         six = new JButton("6");
@@ -142,8 +155,7 @@ public class PinChange extends JFrame implements ActionListener {
         six.setFont(new Font("Raleway", Font.BOLD,20));
         six.setBackground(Color.white);
         six.setBounds(440,575,88,60);
-        six.addActionListener(e -> appendToTextField(six.getText(), pinText));
-        six.addActionListener(e -> appendToTextField(six.getText(), repinText));
+        six.addActionListener(e -> appendToActiveTextField(six.getText()));
         add(six);
 
         nine = new JButton("9");
@@ -151,8 +163,7 @@ public class PinChange extends JFrame implements ActionListener {
         nine.setFont(new Font("Raleway", Font.BOLD,20));
         nine.setBackground(Color.white);
         nine.setBounds(440,645,88,60);
-        nine.addActionListener(e -> appendToTextField(nine.getText(), pinText));
-        nine.addActionListener(e -> appendToTextField(nine.getText(), repinText));
+        nine.addActionListener(e -> appendToActiveTextField(nine.getText()));
         add(nine);
 
         cancel = new JButton("Cancel");
@@ -180,14 +191,21 @@ public class PinChange extends JFrame implements ActionListener {
         add(enter);
 
     }
-    private void appendToTextField(String text, JTextField textField) {
-        textField.setText(textField.getText() + text);
+    private void appendToActiveTextField(String text) {
+        if (isPinTextActive) {
+            pinText.setText(pinText.getText() + text);
+        } else {
+            repinText.setText(repinText.getText() + text);
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
 
     }
+
+
+
     public static void main(String[] args){
         new PinChange("");
     }
