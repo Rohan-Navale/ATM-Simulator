@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLOutput;
 
 public class BalanceEnquiry extends JFrame implements ActionListener {
     JTextField textField;
@@ -36,6 +38,27 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         goback.setBounds(600,413,258,50);
         goback.addActionListener(this);
         add(goback);
+
+        Conn c =new Conn();
+        int balance = 0;
+        try{
+            ResultSet rs = c.s.executeQuery("SELECt * FROM bank WHERE pin='"+PIN+"'");
+            while (rs.next()){
+                if(rs.getString("type").equals("Deposit")){
+                    balance+=Integer.parseInt(rs.getString("amount"));
+                } else {
+                    balance-=Integer.parseInt(rs.getString("amount"));
+                }
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        };
+
+        JLabel text = new JLabel("Your Balance is Rs."+balance);
+        text.setForeground(Color.white);
+        text.setFont(new Font("Roboto",Font.BOLD,35));
+        text.setBounds(250,200,500,50);
+        add(text);
 
         JPanel rectangle = new JPanel();
         rectangle.setBounds(10,10,867,483);
@@ -159,13 +182,18 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         enter.setBounds(540,645,120,60);
         add(enter);
 
+
+
     }
     private void appendToTextField(String text) {
         textField.setText(textField.getText() + text);
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
-
+        if(ae.getSource()==goback){
+            setVisible(false);
+            new Trans(PIN).setVisible(true);
+        }
     }
     public static void main(String[] args){
         new BalanceEnquiry("");
