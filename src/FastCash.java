@@ -7,6 +7,7 @@ import java.sql.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class FastCash extends JFrame implements ActionListener {
     JButton withdraw,mini,balance,exit,dep,cash,change;
@@ -219,9 +220,12 @@ public class FastCash extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null,"You have been logged out successfully");
             System.exit(0);
         }
+        String amount="0";
         String buttonText = ((JButton)ae.getSource()).getText();
-        String amount = buttonText.replaceAll("\\D", ""); // Remove all non-digit character
-        Conn conn =new Conn();
+        if(!Objects.equals(buttonText, "0")) {
+            amount = buttonText.replaceAll("\\D", ""); // Remove all non-digit character
+        }
+            Conn conn =new Conn();
         try{
             ResultSet rs = conn.s.executeQuery("SELECT * FROM bank WHERE pin='"+pin+"'");
             int balance = 0 ;
@@ -232,12 +236,13 @@ public class FastCash extends JFrame implements ActionListener {
                     balance -= Integer.parseInt(rs.getString("amount"));
                 }
             }
-
-            if (balance < Integer.parseInt(amount)) {
-                JOptionPane.showMessageDialog(null,"Insufficient Balance");
-                setVisible(false);
-                new Trans(pin).setVisible(true);
-                return;
+            if(!Objects.equals(buttonText, "0")) {
+                if (balance < Integer.parseInt(amount)) {
+                    JOptionPane.showMessageDialog(null, "Insufficient Balance");
+                    setVisible(false);
+                    new Trans(pin).setVisible(true);
+                    return;
+                }
             }
 
             Date date = new Date();
