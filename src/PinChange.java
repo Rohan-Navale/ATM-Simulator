@@ -243,6 +243,10 @@ public class PinChange extends JFrame implements ActionListener {
             setVisible(false);
             new Trans(PIN).setVisible(true);
         }
+        if(ae.getSource() == clear){
+            pinText.setText("");
+            repinText.setText("");
+        }
     }
 
     public static void main(String[] args){
