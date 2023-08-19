@@ -14,7 +14,7 @@ public class Login extends JFrame implements ActionListener {
 
         setTitle("Automated Teller Machine");
         setLayout(null); // to use customized layout
-//
+
 //        ImageIcon I1 = new ImageIcon(ClassLoader.getSystemResource("icons/EASE Bank LOGO.png")); // Fetch th image frm address
 //        Image I2 = I1.getImage().getScaledInstance(546,146, Image.SCALE_DEFAULT); // Sets images in pre sized box
 //        ImageIcon I3 = new ImageIcon(I2); //Conversion of Image to icon since JLable is not compatible with Image
