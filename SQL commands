@@ -1,0 +1,23 @@
+
+USE bankManagementSystem;
+
+CREATE TABLE signup (formno varchar(50), name varchar(20), fathername varchar(20), dob varchar(20), gender varchar(20), email varchar(50),marital varchar(20), address varchar(80), city varchar(30), pin varchar(20), state varchar(25));
+CREATE TABLE signuptwo (formno varchar(50), religion varchar(20), category varchar(20), income varchar(20), education varchar(20), occupation varchar(50),PAN varchar(20), adhaarNumber varchar(80), seniorCitizen varchar(30), existingAccount varchar(20));
+CREATE TABLE signupthree (formno varchar(100), accountType varchar(50), cardNo varchar(20), pinNo varchar(20), facilities varchar(100));
+CREATE TABLE logIn (formno varchar(10), cardNo varchar(100), pinNo varchar(20));
+CREATE TABLE bank(pin varchar(10), date varchar(40), type varchar(20), amount varchar(20));
+
+SELECT * FROM signup;
+SELECT * FROM signuptwo;
+SELECT * FROM signupthree;
+SELECT * FROM logIn;
+SELECT * FROM bank;
+
+
+Truncate table signup;
+Truncate TABLE signuptwo;
+Truncate TABLE signupthree;
+Truncate  TABLE login;
+Truncate  TABLE bank;
+
+drop table bank;
