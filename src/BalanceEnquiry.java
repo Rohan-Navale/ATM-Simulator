@@ -89,13 +89,6 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         seven.addActionListener(e -> appendToTextField(one.getText()));
         add(seven);
 
-        star = new JButton("*");
-        star.setForeground(Color.BLACK);
-        star.setFont(new Font("Raleway", Font.BOLD,20));
-        star.setBackground(Color.white);
-        star.setBounds(242,715,88,60);
-        star.addActionListener(e -> appendToTextField(one.getText()));
-        add(star);
 
         two = new JButton("2");
         two.setForeground(Color.BLACK);
@@ -152,14 +145,6 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         nine.setBounds(440,645,88,60);
         nine.addActionListener(e -> appendToTextField(one.getText()));
         add(nine);
-
-        hashtag = new JButton("#");
-        hashtag.setForeground(Color.BLACK);
-        hashtag.setFont(new Font("Raleway", Font.BOLD,20));
-        hashtag.setBackground(Color.white);
-        hashtag.setBounds(440,715,88,60);
-        hashtag.addActionListener(e -> appendToTextField(one.getText()));
-        add(hashtag);
 
         JButton cancel = new JButton("Cancel");
         cancel.setForeground(Color.WHITE);
