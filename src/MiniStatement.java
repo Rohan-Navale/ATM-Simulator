@@ -30,7 +30,7 @@ public class MiniStatement extends JFrame implements ActionListener {
             Conn conn= new Conn();
             ResultSet rs = conn.s.executeQuery("SELECT * FROM login WHERE pinNo='"+pin+"'");
             while (rs.next()){
-                card.setText("Card Number: "+rs.getString("carNo").substring(0,4)+"XXXXXXXX"+rs.getString("cardNo").substring(12,16));
+                card.setText("Card Number: "+rs.getString("cardNo").substring(0,4)+"XXXXXXXX"+rs.getString("cardNo").substring(12,16));
             }
         } catch (Exception e){
             System.out.println(e);
