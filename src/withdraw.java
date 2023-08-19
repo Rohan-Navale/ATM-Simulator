@@ -232,7 +232,6 @@ public class withdraw extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"Please enter the amount");
             } else {
                 Conn conn = new Conn();
-
                 try{
                     ResultSet rs = conn.s.executeQuery("SELECT * FROM bank WHERE pin='"+PIN+"'");
                     int balance = 0 ;
@@ -257,7 +256,8 @@ public class withdraw extends JFrame implements ActionListener {
                 } catch (Exception e){
                     System.out.println(e);
                 }
-
+                setVisible(false);
+                new Trans(PIN).setVisible(true);
             }
         }
     }
