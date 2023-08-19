@@ -253,6 +253,9 @@ public class Trans extends JFrame implements ActionListener {
             setVisible(false);
             new BalanceEnquiry(pin).setVisible(true);
         }
+        if(ae.getSource()==mini){
+            new MiniStatement(pin).setVisible(true);
+        }
     }
 
 }
