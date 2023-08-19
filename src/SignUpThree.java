@@ -253,9 +253,11 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
             } catch (Exception e){
                 System.out.println(e);
             }
-           setVisible(false);
-           String pin = PIN.toString();
-           new Deposit(pin).setVisible(true);
+            if(!declaration.equals("")) {
+                setVisible(false);
+                String pin = PIN.toString();
+                new Deposit(pin).setVisible(true);
+            }
 
         } else if(ae.getSource()==back){
             setVisible(false);
