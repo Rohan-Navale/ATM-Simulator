@@ -14,7 +14,6 @@ public class SignUpTwo extends JFrame implements ActionListener {
     SignUpTwo(String formno){
 
         formNo=formno; // assigning  global string to  passes parameter
-        System.out.println(formNo);
         setTitle("New User Registration - Page 2");
         setLayout(null);/// VVImp otherwise the text will be at the center
 
