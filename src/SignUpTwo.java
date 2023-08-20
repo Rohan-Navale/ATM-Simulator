@@ -170,18 +170,14 @@ public class SignUpTwo extends JFrame implements ActionListener {
         gendergroup.add(male);
         gendergroup.add(female);
 
-        sub = new JButton("Next");
+        sub = new RoundedButton("Next",new Color(137,58,218),Color.white);
         sub.setBounds(604,680,170,40);
-        sub.setBackground(new Color(92,70,156));
-        sub.setForeground(Color.white);
         sub.addActionListener(this);
         sub.setFont(new Font("Raleway", Font.BOLD,20));
         add(sub);
 
-        back = new JButton("Back");
+        back = new RoundedButton("Back",new Color(92,70,156),Color.white);
         back.setBounds(44,680,170,40);
-        back.setBackground(new Color(29,38,125));
-        back.setForeground(Color.white);
         back.addActionListener(this);
         back.setFont(new Font("Raleway", Font.BOLD,20));
         add(back);
