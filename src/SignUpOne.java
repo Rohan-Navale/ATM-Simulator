@@ -178,10 +178,8 @@ JRadioButton male,female,maried,single;
         stateTextfield.setFont(new Font("Roboto", Font.PLAIN,22));
         add(stateTextfield);
 
-        sub = new JButton("Next");
+        sub = new RoundedButton("Next",new Color(92,70,156),Color.white);
         sub.setBounds(604,710,170,40);
-        sub.setBackground(new Color(92,70,156));
-        sub.setForeground(Color.white);
         sub.addActionListener(this); ///////////MUST ADD BUTTON else data will not be added to db
         sub.setFont(new Font("Raleway", Font.BOLD,20));
         add(sub);
