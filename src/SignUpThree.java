@@ -178,17 +178,13 @@ Long PIN =  Math.abs (random.nextLong() % 9000L) + 1000L;
         declare.setBounds(44,620,550,50);
         add(declare);
 
-        submit = new JButton("Submit");
+        submit = new RoundedButton("Submit",new Color(137,58,218),Color.WHITE);
         submit.setFont(new Font("Raleway", Font.BOLD,20));
-        submit.setForeground(Color.WHITE);
-        submit.setBackground(Color.DARK_GRAY);;
         submit.addActionListener(this);
-        submit.setBackground(new Color(92,70,156));
         submit.setBounds(604,680,170,40);
-
         add(submit);
 
-        back = new JButton("Back");
+        back = new RoundedButton("Back",new Color(92,70,156),Color.WHITE);
         back.setFont(new Font("Raleway", Font.BOLD,20));
         back.setForeground(Color.WHITE);
         back.setBackground(new Color(29,38,125));
