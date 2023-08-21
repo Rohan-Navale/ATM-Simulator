@@ -7,7 +7,7 @@ import java.sql.SQLOutput;
 
 public class BalanceEnquiry extends JFrame implements ActionListener {
     JTextField textField;
-    JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag, goback;
+    JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag, goback,cancel,clear,enter;
     String PIN;
     BalanceEnquiry(String pin){
 
@@ -146,27 +146,23 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         nine.addActionListener(e -> appendToTextField(one.getText()));
         add(nine);
 
-        JButton cancel = new JButton("Cancel");
-        cancel.setForeground(Color.WHITE);
-        cancel.setBackground(new Color(255,87,0));
+        cancel = new RoundedButton("Cancel",new Color(255,87,0),Color.WHITE);
         cancel.setFont(new Font("Raleway", Font.BOLD,20));
+        cancel.addActionListener(this);
         cancel.setBounds(540,505,120,60);
         add(cancel);
 
-        JButton clear = new JButton("Clear");
-        clear.setForeground(Color.WHITE);
+        clear = new RoundedButton("Clear", new Color(151,71,255), Color.WHITE);
         clear.setFont(new Font("Raleway", Font.BOLD,20));
-        clear.setBackground(new Color(19,105,245));
+        clear.addActionListener(this);
         clear.setBounds(540,575,120,60);
         add(clear);
 
-        JButton enter = new JButton("Enter");
-        enter.setForeground(Color.WHITE);
+        enter = new RoundedButton("Enter", new Color(133,193,13),Color.WHITE );
         enter.setFont(new Font("Raleway", Font.BOLD,20));
-        enter.setBackground(new Color(133,193,13));
         enter.setBounds(540,645,120,60);
+        enter.addActionListener(this);
         add(enter);
-
 
 
     }
