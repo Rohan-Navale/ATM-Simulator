@@ -169,38 +169,23 @@ public class Deposit extends JFrame implements ActionListener {
 //        hashtag.addActionListener(e -> appendToTextField(one.getText()));
 //        add(hashtag);
 
-        cancel = new JButton("Cancel");
-        cancel.setForeground(Color.WHITE);
-        cancel.setBackground(new Color(255,87,0));
+        cancel = new RoundedButton("Cancel",new Color(255,87,0),Color.WHITE);
         cancel.setFont(new Font("Raleway", Font.BOLD,20));
         cancel.addActionListener(this);
         cancel.setBounds(540,505,120,60);
         add(cancel);
 
-//        back = new JButton("Back");
-//        back.setForeground(Color.WHITE);
-//        back.setFont(new Font("Raleway", Font.BOLD,20));
-//        back.setBackground(new Color(19,105,245));
-//        back.addActionListener(this);
-//        back.setBounds(540,575,120,60);
-//        add(back);
-
-        clear = new JButton("Clear");
-        clear.setForeground(Color.WHITE);
+        clear = new RoundedButton("Clear", new Color(151,71,255), Color.WHITE);
         clear.setFont(new Font("Raleway", Font.BOLD,20));
-        clear.setBackground(new Color(151,71,255));
         clear.addActionListener(this);
         clear.setBounds(540,575,120,60);
         add(clear);
 
-        enter = new JButton("Enter");
-        enter.setForeground(Color.WHITE);
+        enter = new RoundedButton("Enter", new Color(133,193,13),Color.WHITE );
         enter.setFont(new Font("Raleway", Font.BOLD,20));
-        enter.setBackground(new Color(133,193,13));
         enter.setBounds(540,645,120,60);
         enter.addActionListener(this);
         add(enter);
-
 
 
 
