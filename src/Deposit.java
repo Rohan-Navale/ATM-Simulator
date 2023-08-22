@@ -4,11 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-import static java.lang.System.exit;
-
 public class Deposit extends JFrame implements ActionListener {
     JTextField textField;
-    JButton one,two,three,four,five,six,seven,eight,nine,zero,star,hashtag, cancel, back,clear, enter,deposit,goback;
+    JButton one,two,three,four,five,six,seven,eight,nine,zero, cancel, back,clear, enter,deposit,goback;
     String PIN;
     Deposit(String pinNumber){
 
@@ -97,14 +95,6 @@ public class Deposit extends JFrame implements ActionListener {
         seven.addActionListener(e -> appendToTextField(seven.getText()));
         add(seven);
 
-//        star = new JButton("*");
-//        star.setForeground(Color.BLACK);
-//        star.setFont(new Font("Raleway", Font.BOLD,20));
-//        star.setBackground(Color.white);
-//        star.setBounds(242,715,88,60);
-//        star.addActionListener(e -> appendToTextField(star.getText()));
-//        add(star);
-
         two = new JButton("2");
         two.setForeground(Color.BLACK);
         two.setFont(new Font("Raleway", Font.BOLD,20));
@@ -161,14 +151,6 @@ public class Deposit extends JFrame implements ActionListener {
         nine.addActionListener(e -> appendToTextField(nine.getText()));
         add(nine);
 
-//        hashtag = new JButton("#");
-//        hashtag.setForeground(Color.BLACK);
-//        hashtag.setFont(new Font("Raleway", Font.BOLD,20));
-//        hashtag.setBackground(Color.white);
-//        hashtag.setBounds(440,715,88,60);
-//        hashtag.addActionListener(e -> appendToTextField(one.getText()));
-//        add(hashtag);
-
         cancel = new RoundedButton("Cancel",new Color(255,87,0),Color.WHITE);
         cancel.setFont(new Font("Raleway", Font.BOLD,20));
         cancel.addActionListener(this);
@@ -186,9 +168,6 @@ public class Deposit extends JFrame implements ActionListener {
         enter.setBounds(540,645,120,60);
         enter.addActionListener(this);
         add(enter);
-
-
-
     }
 
     private void appendToTextField(String text) {
