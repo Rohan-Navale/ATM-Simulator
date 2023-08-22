@@ -13,7 +13,7 @@ SELECT * FROM signupthree;
 SELECT * FROM logIn;
 SELECT * FROM bank;
 
-
+-- Commands to clear the contents of tables without deleting the table
 Truncate table signup;
 Truncate TABLE signuptwo;
 Truncate TABLE signupthree;
