@@ -7,6 +7,7 @@ CREATE TABLE signupthree (formno varchar(100), accountType varchar(50), cardNo v
 CREATE TABLE logIn (formno varchar(10), cardNo varchar(100), pinNo varchar(20));
 CREATE TABLE bank(pin varchar(10), date varchar(40), type varchar(20), amount varchar(20));
 
+-- Commands to view existing rowss in a table
 SELECT * FROM signup;
 SELECT * FROM signuptwo;
 SELECT * FROM signupthree;
