@@ -25,4 +25,5 @@ Truncate TABLE signupthree;
 Truncate  TABLE login;
 Truncate  TABLE bank;
 
+-- Command to delete particular table;
 drop table bank;
