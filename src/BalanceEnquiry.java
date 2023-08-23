@@ -163,9 +163,8 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
         enter.setBounds(540,645,120,60);
         enter.addActionListener(this);
         add(enter);
-
-
     }
+    
     private void appendToTextField(String text) {
         textField.setText(textField.getText() + text);
     }
@@ -179,6 +178,4 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
     public static void main(String[] args){
         new BalanceEnquiry("");
     }
-
-
 }
