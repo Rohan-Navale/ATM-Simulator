@@ -216,8 +216,8 @@ JRadioButton male,female,maried,single;
         String state = stateTextfield.getText();
 
         try{
-            if(name.equals("")){
-                JOptionPane.showMessageDialog(null,"Name cannot be empty");
+            if(name.equals("") || fname.equals("") || dob.equals("") || gender == null || email.equals("") || marital==null || address.equals("") || city.equals("") || pin.equals("") || state.equals("")){
+                JOptionPane.showMessageDialog(null,"Please fill all the fields");
             } else {
                 Conn c = new Conn();
                String query = "insert into signup values('"+formno+"', '"+name+"', '"+fname+"', '"+dob+"', '"+gender+"','"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+pin+"', '"+state+"')";
