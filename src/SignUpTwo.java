@@ -218,7 +218,9 @@ public class SignUpTwo extends JFrame implements ActionListener {
                 exacc = "No";
             }
 
-            try {
+            if(religion.equals("") || cat.equals("") || inc.equals("") || senior == null || exacc==null || ed.equals("") || occ.equals("") || pn.equals("") || ad.equals("")){
+                JOptionPane.showMessageDialog(null,"Please fill all the fields");
+            } else try {
                 Conn c = new Conn();
                 String query = "insert into signuptwo values('" + formNo + "', '" + religion + "', '" + cat + "', '" + inc + "', '" + ed + "','" + occ + "', '" + pn + "', '" + ad + "', '" + senior + "', '" + exacc + "')";
                 c.s.executeUpdate(query);
