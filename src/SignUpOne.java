@@ -1,16 +1,14 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
-import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
 public class SignUpOne extends JFrame implements ActionListener{
 JTextField nameField, fatherField,cfield, emailField, addressField, cityField,aafield,stateTextfield;
 JButton sub;
-JDateChooser date;
+ JDateChooser date;
 JRadioButton male,female,maried,single;
     Random ran   = new Random();
     long random = Math.abs((ran.nextLong()%9000L)+1000L);
