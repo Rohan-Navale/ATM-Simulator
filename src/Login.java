@@ -62,7 +62,6 @@ public class Login extends JFrame implements ActionListener {
         cardTextField = new JTextField();
         cardTextField.setBounds(362,136,192,30);
         cardTextField.setFont(new Font("Roboto", Font.BOLD,18));
-
         add(cardTextField);
 
         JLabel pin = new JLabel("PIN :");
